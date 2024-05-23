@@ -31,3 +31,9 @@ loginForm.addEventListener('submit', function(event) {
   document.querySelector('.login').classList.remove('active');
   window.location.href = 'products.html';
 });
+
+
+
+
+
+
