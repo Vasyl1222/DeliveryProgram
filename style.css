@@ -13,6 +13,9 @@
     flex-direction: column;
     overflow-y: auto; 
   }
+.col{
+  column-count: 2
+}
   .header {
     background-color: #333;
     color: white;
@@ -301,7 +304,17 @@ body {
 
 
 
-
+.all{
+  padding-top: 120px;
+  margin-top: 500px;
+   
+}
+.h3{
+  background-color: #555;
+  color: #FFF9F1;
+  border-radius: 5px;
+  text-align:center;
+}
 
 
 
@@ -314,7 +327,7 @@ body {
   flex-wrap: wrap;
   justify-content: space-between;
   padding: 0;
-  max-width: 800px; 
+  max-width: 700px; 
   margin: 0;
 }
 
