@@ -181,6 +181,36 @@
     
         
           <script src="script.js"></script>
+          <script>
+            document.addEventListener('DOMContentLoaded', () => {
+            const addToCartButtons = document.querySelectorAll('.add-to-cart-btn');
+            const cartIcon = document.querySelector('img[alt="Icon 3"]');
+            
+            let cartCountSpan = document.createElement('span');
+            cartCountSpan.style.position = 'absolute';
+            cartCountSpan.style.top = '0';
+            cartCountSpan.style.right = '0';
+            cartCountSpan.style.backgroundColor = 'red';
+            cartCountSpan.style.color = 'white';
+            cartCountSpan.style.borderRadius = '50%';
+            cartCountSpan.style.padding = '0 5px';
+            cartCountSpan.style.fontSize = '12px';
+            cartCountSpan.style.display = 'none';  
+            
+            cartIcon.parentElement.style.position = 'relative';  
+            cartIcon.parentElement.appendChild(cartCountSpan);
+        
+            let cartCount = 0;
+        
+            addToCartButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    cartCount++;
+                    cartCountSpan.textContent = cartCount;
+                    cartCountSpan.style.display = 'inline';
+                });
+            });
+        });
+                  </script>
     </body>
 </body>
 </html>

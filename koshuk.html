@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grocery Express - Кошик</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="/pictures/logo.png" type="image/png">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<header class="header">
+    <a href="products.html"><img class="logo" style="width: 100px;" src="/pictures/logo.png" alt=""></a>
+    <h1 style="margin-left: 150px;">Grocery Express</h1>
+    <div class="header-icons">
+        <a href="kabinet.html"><img style="width: 40px; height: 40px; margin-right: 15px;" src="https://img.icons8.com/?size=100&id=7820&format=png&color=FFFFFF" alt="Icon 1"></a>
+        <a href="cart.html">
+            <img style="width: 40px; height: 40px; margin-right: 15px;" src="https://img.icons8.com/?size=100&id=xjnMGXwRRjbC&format=png&color=FFFFFF" alt="Icon 3">
+            <span id="cart-count" style="display: none;"></span>
+        </a>
+                <a href="#"><img style="width: 40px; height: 40px; margin-right: 15px;" src="https://img.icons8.com/?size=100&id=487&format=png&color=FFFFFF" alt="Icon 3"></a>
+        <a href="index.html"><img style="width: 40px; height: 40px; margin-right: 15px;" src="https://img.icons8.com/?size=100&id=1090&format=png&color=FFFFFF" alt=""></a>
+    </div>
+</header>
+
+<h2 style="margin-top: 100px; margin-left: 150px;">Кошик</h2>
+<div style="margin-left: 150px;" id="cart" class="product-container">
+</div>
+
+<footer class="footer" style="margin-top: 200px;">
+    <div class="footer-column">
+        <h3>Телефон</h3>
+        <p>+380 123 456 789</p>
+    </div>
+    <div class="footer-column">
+        <h3>Адреса магазинів</h3>
+        <p>вул. Центральна, 1, Київ</p>
+        <p>пр-т Свободи, 5, Харків</p>
+    </div>
+    <div class="footer-column">
+        <p><a href="aboutUs.html">Про нас</a></p>
+        <p><a href="dostavka.html">Доставка</a></p>
+    </div>
+    <div class="footer-column">
+        <p><a href="#">Оплата</a></p>
+        <p><a href="#">Співпраця з нами</a></p>
+    </div>        
+</footer>
+
+<style>
+.product-container {
+    display: flex; 
+    flex-wrap: wrap; 
+    justify-content: flex-start; 
+}
+
+.product-card {
+    width: 150px; 
+    border: 1px solid #ccc; 
+    padding: 10px; 
+    margin-right: 10px; 
+    margin-bottom: 10px; 
+}
+
+.quantity-btn {
+    margin: 0 8px; 
+}
+
+</style>
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+    const cartContainer = document.getElementById('cart');
+
+    displayCartItems();
+
+    function displayCartItems() {
+        cartContainer.innerHTML = '';
+        const cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
+        cartItems.forEach(item => {
+            const productContainer = document.createElement('div');
+            productContainer.classList.add('product-card');
+
+            const productImage = document.createElement('img');
+            productImage.src = item.image; 
+            productImage.alt = item.name;
+
+            const productNameElement = document.createElement('p');
+            productNameElement.textContent = item.name; 
+
+            const quantityDiv = document.createElement('div');
+            quantityDiv.classList.add('quantity');
+
+            const minusButton = document.createElement('button');
+            minusButton.classList.add('quantity-btn', 'minus');
+            minusButton.textContent = '-';
+            minusButton.addEventListener('click', () => updateQuantity(item, -1));
+
+            const quantityText = document.createElement('span');
+            quantityText.classList.add('quantity-text');
+            quantityText.textContent = item.quantity; 
+
+            const plusButton = document.createElement('button');
+            plusButton.classList.add('quantity-btn', 'plus');
+            plusButton.textContent = '+';
+            plusButton.addEventListener('click', () => updateQuantity(item, 1));
+
+            quantityDiv.appendChild(minusButton);
+            quantityDiv.appendChild(quantityText);
+            quantityDiv.appendChild(plusButton);
+
+            productContainer.appendChild(productImage);
+            productContainer.appendChild(productNameElement);
+            productContainer.appendChild(quantityDiv);
+
+            cartContainer.appendChild(productContainer);
+        });
+    }
+
+    function updateQuantity(item, change) {
+        const cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
+        const index = cartItems.findIndex(cartItem => cartItem.name === item.name);
+        if (index !== -1) {
+            cartItems[index].quantity += change;
+            if (cartItems[index].quantity < 1) {
+                cartItems.splice(index, 1); 
+            }
+        } else {
+            item.quantity = 1; 
+            cartItems.push(item);
+        }
+        localStorage.setItem('cartItems', JSON.stringify(cartItems));
+        displayCartItems();
+        updateCartCount(); 
+    }
+
+    function updateCartCount() {
+        const cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
+        const cartCountSpan = document.getElementById('cart-count');
+        if (cartCountSpan) {
+            cartCountSpan.textContent = cartItems.length.toString();
+            if (cartItems.length > 0) {
+                cartCountSpan.style.display = 'inline-block';
+            } else {
+                cartCountSpan.style.display = 'none';
+            }
+        }
+    }
+});
+</script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
