@@ -9,15 +9,41 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
 </head>
 <body>
-    
+    <style>
+        .quantity-control {
+            display: center;
+            align-items: center;
+        }
+
+        .quantity-control button {
+            background-color: #555;
+            border: none;
+            padding: 5px 10px;
+            cursor: pointer;
+        }
+
+        .quantity-control .quantity-text {
+            margin: 0 10px;
+        }
+        .increase-quantity{
+            color: white;
+        }
+        .decrease-quantity{
+            color: white;
+        }
+    </style>
     <header class="header">
-        <a href="products.html"><img class="logo" style="width: 100px; " src="/pictures/logo.png" alt=""></a>
+        <a href="products.html"><img class="logo" style="width: 100px;" src="/pictures/logo.png" alt=""></a>
         <h1 style="margin-left: 150px;">Grocery Express</h1>
         <div class="header-icons">
-            <a href="#"><img style="width: 40px; height: 40px; margin-right: 15px;" src="https://img.icons8.com/?size=100&id=7820&format=png&color=FFFFFF" alt="Icon 1"></a>
-            <a href="#"><img style=" background-color: none; width: 40px; height: 40px; margin-right: 15px;" src="https://img.icons8.com/?size=100&id=xjnMGXwRRjbC&format=png&color=FFFFFF" alt="Icon 2">            </a>
+            <a href="kabinet.html"><img style="width: 40px; height: 40px; margin-right: 15px;" src="https://img.icons8.com/?size=100&id=7820&format=png&color=FFFFFF" alt="Icon 1"></a>
+            <a href="koshuk.html" style="position: relative;">
+                <img style="width: 40px; height: 40px; margin-right: 15px;" src="https://img.icons8.com/?size=100&id=xjnMGXwRRjbC&format=png&color=FFFFFF" alt="Icon 3">
+                <span id="cart-count" style="position: absolute; top: 0; right: 0; background-color: red; color: white; border-radius: 50%; padding: 0 5px; font-size: 12px; display: none;"></span>
+            </a>
+            
             <a href="#"><img style="width: 40px; height: 40px; margin-right: 15px;" src="https://img.icons8.com/?size=100&id=487&format=png&color=FFFFFF" alt="Icon 3"></a>
-            <a href="reviews.html"><img style="width: 40px; height: 40px; margin-right: 15px;" src="pictures/reviews.png" alt="Icon 4"></a>
+            <a href="index.html"><img style="width: 40px; height: 40px; margin-right: 15px;" src="https://img.icons8.com/?size=100&id=1090&format=png&color=FFFFFF" alt=""></a>
         </div>
     </header>
 
@@ -63,94 +89,154 @@
                 <h3 >Цукор та солодощі</h3>
             </div>
             <div class="product-container" >
-                <div class="product-card">
-                    <img style=" height: 150px;" src="pictures/whiteSugar.jpg" alt="Цукор ">
+                <div class="product-card" data-product-name="Цукор білий" data-product-image="pictures/whiteSugar.jpg" data-product-price="45">
+                    <img style="height: 150px;" src="pictures/whiteSugar.jpg" alt="Цукор білий">
                     <p>Цукор білий</p>
                     <p>Стара ціна: <del>50 грн</del></p>
                     <p>Нова ціна: <span style="color: red;">45 грн</span></p>
+                    <div class="quantity-control">
+                        <button class="decrease-quantity">-</button>
+                        <span class="quantity-text">1</span>
+                        <button class="increase-quantity">+</button>
+                    </div>
                     <button class="add-to-cart-btn">Додати в кошик</button>
                 </div>
-                <div class="product-card">
-                    <img style=" height: 150px;" src="/pictures/darkSugar.jpg" alt="Зображення товару 2">
+                <div class="product-card" data-product-name="Тростинний цукор" data-product-image="pictures/darkSugar.jpg" data-product-price="80">
+                    <img style="height: 150px;" src="pictures/darkSugar.jpg" alt="Тростинний цукор">
                     <p>Тростинний цукор</p>
                     <p>Стара ціна: <del>90 грн</del></p>
                     <p>Нова ціна: <span style="color: red;">80 грн</span></p>
+                    <div class="quantity-control">
+                        <button class="decrease-quantity">-</button>
+                        <span class="quantity-text">1</span>
+                        <button class="increase-quantity">+</button>
+                    </div>
                     <button class="add-to-cart-btn">Додати в кошик</button>
                 </div>
-                <div class="product-card">
-                    <img style=" height: 150px;" src="/pictures/whiteSugarCub.webp" alt="Зображення товару 3">
-                    <p>Цукор білий пресованний</p>
+                <div class="product-card" data-product-name="Цукор білий пресований" data-product-image="pictures/whiteSugarCub.webp" data-product-price="70">
+                    <img style="height: 150px;" src="pictures/whiteSugarCub.webp" alt="Цукор білий пресований">
+                    <p>Цукор білий пресований</p>
                     <p>Стара ціна: <del>80 грн</del></p>
                     <p>Нова ціна: <span style="color: red;">70 грн</span></p>
+                    <div class="quantity-control">
+                        <button class="decrease-quantity">-</button>
+                        <span class="quantity-text">1</span>
+                        <button class="increase-quantity">+</button>
+                    </div>
                     <button class="add-to-cart-btn">Додати в кошик</button>
                 </div>
-                <div class="product-card">
-                    <img style=" height: 150px;" src="/pictures/darkSugarCub.webp" alt="Зображення товару 4">
-                    <p>Тростинний цукор пресованний</p>
+                <div class="product-card" data-product-name="Тростинний цукор пресований" data-product-image="pictures/darkSugarCub.webp" data-product-price="100">
+                    <img style="height: 150px;" src="pictures/darkSugarCub.webp" alt="Тростинний цукор пресований">
+                    <p>Тростинний цукор пресований</p>
                     <p>Стара ціна: <del>110 грн</del></p>
                     <p>Нова ціна: <span style="color: red;">100 грн</span></p>
+                    <div class="quantity-control">
+                        <button class="decrease-quantity">-</button>
+                        <span class="quantity-text">1</span>
+                        <button class="increase-quantity">+</button>
+                    </div>
                     <button class="add-to-cart-btn">Додати в кошик</button>
                 </div>
             </div>
             <div class="product-container">
-                <div class="product-card">
-                    <img style=" height: 150px;" src="/pictures/snikers.png" alt="Зображення товару 1">
-                    <p>Snikers</p>
+                <div class="product-card" data-product-name="Snickers" data-product-image="/pictures/snikers.png" data-product-price="25">
+                    <img style="height: 150px;" src="/pictures/snikers.png" alt="Snickers">
+                    <p>Snickers</p>
                     <p>Стара ціна: <del>30 грн</del></p>
                     <p>Нова ціна: <span style="color: red;">25 грн</span></p>
+                    <div class="quantity-control">
+                        <button class="decrease-quantity">-</button>
+                        <span class="quantity-text">1</span>
+                        <button class="increase-quantity">+</button>
+                    </div>
                     <button class="add-to-cart-btn">Додати в кошик</button>
                 </div>
-                <div class="product-card">
-                    <img style=" height: 150px;" src="/pictures/snikersHazelnut.jpg" alt="Зображення товару 2">
-                    <p>Snikers hazelnut</p>
+                <div class="product-card" data-product-name="Snickers hazelnut" data-product-image="/pictures/snikersHazelnut.jpg" data-product-price="30">
+                    <img style="height: 150px;" src="/pictures/snikersHazelnut.jpg" alt="Snickers hazelnut">
+                    <p>Snickers hazelnut</p>
                     <p>Стара ціна: <del>40 грн</del></p>
                     <p>Нова ціна: <span style="color: red;">30 грн</span></p>
+                    <div class="quantity-control">
+                        <button class="decrease-quantity">-</button>
+                        <span class="quantity-text">1</span>
+                        <button class="increase-quantity">+</button>
+                    </div>
                     <button class="add-to-cart-btn">Додати в кошик</button>
                 </div>
-                <div class="product-card">
-                    <img style=" height: 150px;" src="/pictures/bounty.jpg" alt="Зображення товару 3">
+                <div class="product-card" data-product-name="Bounty double" data-product-image="/pictures/bounty.jpg" data-product-price="30">
+                    <img style="height: 150px;" src="/pictures/bounty.jpg" alt="Bounty double">
                     <p>Bounty double</p>
                     <p>Стара ціна: <del>40 грн</del></p>
                     <p>Нова ціна: <span style="color: red;">30 грн</span></p>
+                    <div class="quantity-control">
+                        <button class="decrease-quantity">-</button>
+                        <span class="quantity-text">1</span>
+                        <button class="increase-quantity">+</button>
+                    </div>
                     <button class="add-to-cart-btn">Додати в кошик</button>
                 </div>
-                <div class="product-card">
-                    <img style=" height: 150px;" src="/pictures/mars.webp" alt="Зображення товару 4">
+                <div class="product-card" data-product-name="Mars" data-product-image="/pictures/mars.webp" data-product-price="20">
+                    <img style="height: 150px;" src="/pictures/mars.webp" alt="Mars">
                     <p>Mars</p>
                     <p>Стара ціна: <del>30 грн</del></p>
                     <p>Нова ціна: <span style="color: red;">20 грн</span></p>
+                    <div class="quantity-control">
+                        <button class="decrease-quantity">-</button>
+                        <span class="quantity-text">1</span>
+                        <button class="increase-quantity">+</button>
+                    </div>
                     <button class="add-to-cart-btn">Додати в кошик</button>
                 </div>
             </div>
             <div class="product-container">
-                <div class="product-card">
-                    <img style=" height: 150px;" src="/pictures/twix .webp" alt="Зображення товару 1">
+                <div class="product-card" data-product-name="Twix" data-product-image="/pictures/twix .webp" data-product-price="20">
+                    <img style="height: 150px;" src="/pictures/twix .webp" alt="Twix">
                     <p>Twix</p>
                     <p>Стара ціна: <del>30 грн</del></p>
                     <p>Нова ціна: <span style="color: red;">20 грн</span></p>
+                    <div class="quantity-control">
+                        <button class="decrease-quantity">-</button>
+                        <span class="quantity-text">1</span>
+                        <button class="increase-quantity">+</button>
+                    </div>
                     <button class="add-to-cart-btn">Додати в кошик</button>
                 </div>
-                <div class="product-card">
-                    <img style=" height: 150px;" src="pictures/twixXtra.jpg" alt="Зображення товару 2">
+                <div class="product-card" data-product-name="Twix Xtra" data-product-image="/pictures/twixXtra.jpg" data-product-price="40">
+                    <img style="height: 150px;" src="/pictures/twixXtra.jpg" alt="Twix Xtra">
                     <p>Twix Xtra</p>
                     <p>Стара ціна: <del>50 грн</del></p>
                     <p>Нова ціна: <span style="color: red;">40 грн</span></p>
+                    <div class="quantity-control">
+                        <button class="decrease-quantity">-</button>
+                        <span class="quantity-text">1</span>
+                        <button class="increase-quantity">+</button>
+                    </div>
                     <button class="add-to-cart-btn">Додати в кошик</button>
                 </div>
-                <div class="product-card">
-                    <img style=" height: 150px;" src="/pictures/oreo.jpg" alt="Зображення товару 3">
+                <div class="product-card" data-product-name="Oreo" data-product-image="/pictures/oreo.jpg" data-product-price="75">
+                    <img style="height: 150px;" src="/pictures/oreo.jpg" alt="Oreo">
                     <p>Oreo</p>
                     <p>Стара ціна: <del>80 грн</del></p>
                     <p>Нова ціна: <span style="color: red;">75 грн</span></p>
+                    <div class="quantity-control">
+                        <button class="decrease-quantity">-</button>
+                        <span class="quantity-text">1</span>
+                        <button class="increase-quantity">+</button>
+                    </div>
                     <button class="add-to-cart-btn">Додати в кошик</button>
                 </div>
-                <div class="product-card">
-                    <img style=" height: 150px;" src="/pictures/milka.webp" alt="Зображення товару 4">
+                <div class="product-card" data-product-name="Milka" data-product-image="/pictures/milka.webp" data-product-price="80">
+                    <img style="height: 150px;" src="/pictures/milka.webp" alt="Milka">
                     <p>Milka</p>
                     <p>Стара ціна: <del>90 грн</del></p>
                     <p>Нова ціна: <span style="color: red;">80 грн</span></p>
+                    <div class="quantity-control">
+                        <button class="decrease-quantity">-</button>
+                        <span class="quantity-text">1</span>
+                        <button class="increase-quantity">+</button>
+                    </div>
                     <button class="add-to-cart-btn">Додати в кошик</button>
-                </div>
+                </div>                
             </div>
         </div>  
     </div>  
@@ -181,34 +267,58 @@
         
           <script src="script.js"></script>
           <script>
-    document.addEventListener('DOMContentLoaded', () => {
-    const addToCartButtons = document.querySelectorAll('.add-to-cart-btn');
-    const cartIcon = document.querySelector('img[alt="Icon 3"]');
-    
-    let cartCountSpan = document.createElement('span');
-    cartCountSpan.style.position = 'absolute';
-    cartCountSpan.style.top = '0';
-    cartCountSpan.style.right = '0';
-    cartCountSpan.style.backgroundColor = 'red';
-    cartCountSpan.style.color = 'white';
-    cartCountSpan.style.borderRadius = '50%';
-    cartCountSpan.style.padding = '0 5px';
-    cartCountSpan.style.fontSize = '12px';
-    cartCountSpan.style.display = 'none';  
-    
-    cartIcon.parentElement.style.position = 'relative';  
-    cartIcon.parentElement.appendChild(cartCountSpan);
+            document.addEventListener('DOMContentLoaded', function() {
+            const updateCartCount = () => {
+                const cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
+                const cartCountSpan = document.getElementById('cart-count');
+                cartCountSpan.textContent = cartItems.length;
+                cartCountSpan.style.display = cartItems.length > 0 ? 'block' : 'none';
+            };
 
-    let cartCount = 0;
+            const changeQuantity = (element, change) => {
+                const quantityText = element.parentElement.querySelector('.quantity-text');
+                let quantity = parseInt(quantityText.textContent, 10);
+                quantity += change;
+                if (quantity < 1) quantity = 1;
+                quantityText.textContent = quantity;
+            };
 
-    addToCartButtons.forEach(button => {
-        button.addEventListener('click', () => {
-            cartCount++;
-            cartCountSpan.textContent = cartCount;
-            cartCountSpan.style.display = 'inline';
-        });
-    });
-});
+            document.querySelectorAll('.increase-quantity').forEach(button => {
+                button.addEventListener('click', () => changeQuantity(button, 1));
+            });
+
+            document.querySelectorAll('.decrease-quantity').forEach(button => {
+                button.addEventListener('click', () => changeQuantity(button, -1));
+            });
+
+            const addToCart = (button) => {
+            const productCard = button.parentElement;
+            const productName = productCard.dataset.productName;
+            const productImage = productCard.dataset.productImage;
+            const productPrice = parseFloat(productCard.dataset.productPrice);
+            const quantity = parseInt(productCard.querySelector('.quantity-text').textContent, 10);
+
+            let cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
+            const index = cartItems.findIndex(cartItem => cartItem.name === productName);
+
+            if (index !== -1) {
+                cartItems[index].quantity += quantity;
+            } else {
+                cartItems.push({ name: productName, image: productImage, price: productPrice, quantity: quantity }); 
+            }
+
+            localStorage.setItem('cartItems', JSON.stringify(cartItems));
+            updateCartCount(); 
+        };
+
+
+
+            document.querySelectorAll('.add-to-cart-btn').forEach(button => {
+                button.addEventListener('click', () => addToCart(button));
+            });
+
+            updateCartCount();
+        });  
           </script>
     </body>
 </body>

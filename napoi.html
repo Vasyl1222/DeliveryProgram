@@ -9,15 +9,41 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
 </head>
 <body>
-    
-    <header class="header">
-        <a href="products.html"><img class="logo" style="width: 100px; " src="/pictures/logo.png" alt=""></a>
+    <style>
+        .quantity-control {
+            display: center;
+            align-items: center;
+        }
+
+        .quantity-control button {
+            background-color: #555;
+            border: none;
+            padding: 5px 10px;
+            cursor: pointer;
+        }
+
+        .quantity-control .quantity-text {
+            margin: 0 10px;
+        }
+        .increase-quantity{
+            color: white;
+        }
+        .decrease-quantity{
+            color: white;
+        }
+    </style>
+     <header class="header">
+        <a href="products.html"><img class="logo" style="width: 100px;" src="/pictures/logo.png" alt=""></a>
         <h1 style="margin-left: 150px;">Grocery Express</h1>
         <div class="header-icons">
-            <a href="#"><img style="width: 40px; height: 40px; margin-right: 15px;" src="https://img.icons8.com/?size=100&id=7820&format=png&color=FFFFFF" alt="Icon 1"></a>
-            <a href="#"><img style=" background-color: none; width: 40px; height: 40px; margin-right: 15px;" src="https://img.icons8.com/?size=100&id=xjnMGXwRRjbC&format=png&color=FFFFFF" alt="Icon 2">            </a>
+            <a href="kabinet.html"><img style="width: 40px; height: 40px; margin-right: 15px;" src="https://img.icons8.com/?size=100&id=7820&format=png&color=FFFFFF" alt="Icon 1"></a>
+            <a href="koshuk.html" style="position: relative;">
+                <img style="width: 40px; height: 40px; margin-right: 15px;" src="https://img.icons8.com/?size=100&id=xjnMGXwRRjbC&format=png&color=FFFFFF" alt="Icon 3">
+                <span id="cart-count" style="position: absolute; top: 0; right: 0; background-color: red; color: white; border-radius: 50%; padding: 0 5px; font-size: 12px; display: none;"></span>
+            </a>
+            
             <a href="#"><img style="width: 40px; height: 40px; margin-right: 15px;" src="https://img.icons8.com/?size=100&id=487&format=png&color=FFFFFF" alt="Icon 3"></a>
-            <a href="reviews.html"><img style="width: 40px; height: 40px; margin-right: 15px;" src="pictures/reviews.png" alt="Icon 4"></a>
+            <a href="index.html"><img style="width: 40px; height: 40px; margin-right: 15px;" src="https://img.icons8.com/?size=100&id=1090&format=png&color=FFFFFF" alt=""></a>
         </div>
     </header>
 
@@ -62,96 +88,156 @@
             <div class="h3">
                 <h3 >Напої</h3>
             </div>
-            <div class="product-container" >
-                <div class="product-card">
-                    <img style=" height: 150px;" src="/pictures/napii1.webp" alt="Цукор ">
+            <div class="product-container">
+                <div class="product-card" data-product-name="Сильногазована вода Coca Cola 0,75" data-product-image="/pictures/napii1.webp" data-product-price="30">
+                    <img style="height: 150px;" src="/pictures/napii1.webp" alt="Сильногазована вода Coca Cola 0,75">
                     <p>Сильногазована вода Coca Cola 0,75</p>
                     <p>Стара ціна: <del>35 грн</del></p>
                     <p>Нова ціна: <span style="color: red;">30 грн</span></p>
-                    <button class="add-to-cart-btn">Додати в кошик</button>
+                    <div class="quantity-control">
+                        <button class="decrease-quantity">-</button>
+                        <span class="quantity-text">1</span>
+                        <button class="increase-quantity">+</button>
+                    </div>
+                    <button class="add-to-cart-btn" onclick="addToCart(this)">Додати в кошик</button>
                 </div>
-                <div class="product-card">
-                    <img style=" height: 150px;" src="/pictures/napii2.webp" alt="Зображення товару 2">
+                <div class="product-card" data-product-name="Сильногазована вода Coca Cola 1,75" data-product-image="/pictures/napii2.webp" data-product-price="35">
+                    <img style="height: 150px;" src="/pictures/napii2.webp" alt="Сильногазована вода Coca Cola 1,75">
                     <p>Сильногазована вода Coca Cola 1,75</p>
                     <p>Стара ціна: <del>40 грн</del></p>
                     <p>Нова ціна: <span style="color: red;">35 грн</span></p>
-                    <button class="add-to-cart-btn">Додати в кошик</button>
+                    <div class="quantity-control">
+                        <button class="decrease-quantity">-</button>
+                        <span class="quantity-text">1</span>
+                        <button class="increase-quantity">+</button>
+                    </div>
+                    <button class="add-to-cart-btn" onclick="addToCart(this)">Додати в кошик</button>
                 </div>
-                <div class="product-card">
-                    <img style=" height: 150px;" src="/pictures/napii3.webp" alt="Зображення товару 3">
+                <div class="product-card" data-product-name="Сильногазована вода Fanta 0,75" data-product-image="/pictures/napii3.webp" data-product-price="30">
+                    <img style="height: 150px;" src="/pictures/napii3.webp" alt="Сильногазована вода Fanta 0,75">
                     <p>Сильногазована вода Fanta 0,75</p>
                     <p>Стара ціна: <del>35 грн</del></p>
                     <p>Нова ціна: <span style="color: red;">30 грн</span></p>
-                    <button class="add-to-cart-btn">Додати в кошик</button>
+                    <div class="quantity-control">
+                        <button class="decrease-quantity">-</button>
+                        <span class="quantity-text">1</span>
+                        <button class="increase-quantity">+</button>
+                    </div>
+                    <button class="add-to-cart-btn" onclick="addToCart(this)">Додати в кошик</button>
                 </div>
-                <div class="product-card">
-                    <img style=" height: 150px;" src="/pictures/napii4.webp" alt="Зображення товару 4">
+                <div class="product-card" data-product-name="Сильногазована вода Fanta 1,75" data-product-image="/pictures/napii4.webp" data-product-price="35">
+                    <img style="height: 150px;" src="/pictures/napii4.webp" alt="Сильногазована вода Fanta 1,75">
                     <p>Сильногазована вода Fanta 1,75</p>
                     <p>Стара ціна: <del>40 грн</del></p>
                     <p>Нова ціна: <span style="color: red;">35 грн</span></p>
-                    <button class="add-to-cart-btn">Додати в кошик</button>
+                    <div class="quantity-control">
+                        <button class="decrease-quantity">-</button>
+                        <span class="quantity-text">1</span>
+                        <button class="increase-quantity">+</button>
+                    </div>
+                    <button class="add-to-cart-btn" onclick="addToCart(this)">Додати в кошик</button>
                 </div>
             </div>
             <div class="product-container">
-                <div class="product-card">
-                    <img style=" height: 150px;" src="/pictures/napii5.webp" alt="Зображення товару 1">
+                <div class="product-card" data-product-name="Сильногазована вода Sprite 0,75" data-product-image="/pictures/napii5.webp" data-product-price="30">
+                    <img style="height: 150px;" src="/pictures/napii5.webp" alt="Сильногазована вода Sprite 0,75">
                     <p>Сильногазована вода Sprite 0,75</p>
                     <p>Стара ціна: <del>35 грн</del></p>
                     <p>Нова ціна: <span style="color: red;">30 грн</span></p>
-                    <button class="add-to-cart-btn">Додати в кошик</button>
+                    <div class="quantity-control">
+                        <button class="decrease-quantity">-</button>
+                        <span class="quantity-text">1</span>
+                        <button class="increase-quantity">+</button>
+                    </div>
+                    <button class="add-to-cart-btn" onclick="addToCart(this)">Додати в кошик</button>
                 </div>
-                <div class="product-card">
-                    <img style=" height: 150px;" src="/pictures/napii6.webp" alt="Зображення товару 2">
+                <div class="product-card" data-product-name="Сильногазована вода Sprite 1,75" data-product-image="/pictures/napii6.webp" data-product-price="35">
+                    <img style="height: 150px;" src="/pictures/napii6.webp" alt="Сильногазована вода Sprite 1,75">
                     <p>Сильногазована вода Sprite 1,75</p>
                     <p>Стара ціна: <del>40 грн</del></p>
                     <p>Нова ціна: <span style="color: red;">35 грн</span></p>
-                    <button class="add-to-cart-btn">Додати в кошик</button>
+                    <div class="quantity-control">
+                        <button class="decrease-quantity">-</button>
+                        <span class="quantity-text">1</span>
+                        <button class="increase-quantity">+</button>
+                    </div>
+                    <button class="add-to-cart-btn" onclick="addToCart(this)">Додати в кошик</button>
                 </div>
-                <div class="product-card">
-                    <img style=" height: 150px;" src="/pictures/napii7.webp" alt="Зображення товару 3">
+                <div class="product-card" data-product-name="Апельсиновий сік Sandora 0,95" data-product-image="/pictures/napii7.webp" data-product-price="60">
+                    <img style="height: 150px;" src="/pictures/napii7.webp" alt="Апельсиновий сік Sandora 0,95">
                     <p>Апельсиновий сік Sandora 0,95</p>
                     <p>Стара ціна: <del>70 грн</del></p>
                     <p>Нова ціна: <span style="color: red;">60 грн</span></p>
-                    <button class="add-to-cart-btn">Додати в кошик</button>
+                    <div class="quantity-control">
+                        <button class="decrease-quantity">-</button>
+                        <span class="quantity-text">1</span>
+                        <button class="increase-quantity">+</button>
+                    </div>
+                    <button class="add-to-cart-btn" onclick="addToCart(this)">Додати в кошик</button>
                 </div>
-                <div class="product-card">
-                    <img style=" height: 150px;" src="/pictures/napii8.webp" alt="Зображення товару 4">
+                <div class="product-card" data-product-name="Нектар гранатовий Sandora" data-product-image="/pictures/napii8.webp" data-product-price="60">
+                    <img style="height: 150px;" src="/pictures/napii8.webp" alt="Нектар гранатовий Sandora">
                     <p>Нектар гранатовий Sandora</p>
                     <p>Стара ціна: <del>70 грн</del></p>
                     <p>Нова ціна: <span style="color: red;">60 грн</span></p>
-                    <button class="add-to-cart-btn">Додати в кошик</button>
+                    <div class="quantity-control">
+                        <button class="decrease-quantity">-</button>
+                        <span class="quantity-text">1</span>
+                        <button class="increase-quantity">+</button>
+                    </div>
+                    <button class="add-to-cart-btn" onclick="addToCart(this)">Додати в кошик</button>
                 </div>
-            </div>
+            </div>            
             <div class="product-container">
-                <div class="product-card">
-                    <img style=" height: 150px;" src="/pictures/napii9.webp" alt="Зображення товару 1">
+                <div class="product-card" data-product-name="Сік Коник яблучно-грушевий 3л" data-product-image="/pictures/napii9.webp" data-product-price="200">
+                    <img style="height: 150px;" src="/pictures/napii9.webp" alt="Сік Коник яблучно-грушевий 3л">
                     <p>Сік Коник яблучно-грушевий 3л</p>
                     <p>Стара ціна: <del>230 грн</del></p>
                     <p>Нова ціна: <span style="color: red;">200 грн</span></p>
-                    <button class="add-to-cart-btn">Додати в кошик</button>
+                    <div class="quantity-control">
+                        <button class="decrease-quantity">-</button>
+                        <span class="quantity-text">1</span>
+                        <button class="increase-quantity">+</button>
+                    </div>
+                    <button class="add-to-cart-btn" onclick="addToCart(this)">Додати в кошик</button>
                 </div>
-                <div class="product-card">
-                    <img style=" height: 150px;" src="pictures/napii10.webp" alt="Зображення товару 2">
+                <div class="product-card" data-product-name="Сік Коник яблучно-морквяний 3л" data-product-image="/pictures/napii10.webp" data-product-price="200">
+                    <img style="height: 150px;" src="/pictures/napii10.webp" alt="Сік Коник яблучно-морквяний 3л">
                     <p>Сік Коник яблучно-морквяний 3л</p>
                     <p>Стара ціна: <del>230 грн</del></p>
                     <p>Нова ціна: <span style="color: red;">200 грн</span></p>
-                    <button class="add-to-cart-btn">Додати в кошик</button>
+                    <div class="quantity-control">
+                        <button class="decrease-quantity">-</button>
+                        <span class="quantity-text">1</span>
+                        <button class="increase-quantity">+</button>
+                    </div>
+                    <button class="add-to-cart-btn" onclick="addToCart(this)">Додати в кошик</button>
                 </div>
-                <div class="product-card">
-                    <img style=" height: 150px;" src="/pictures/napii11.webp" alt="Зображення товару 3">
+                <div class="product-card" data-product-name="Сік Yan Без цукру Апельсиновий 930 мл" data-product-image="/pictures/napii11.webp" data-product-price="160">
+                    <img style="height: 150px;" src="/pictures/napii11.webp" alt="Сік Yan Без цукру Апельсиновий 930 мл">
                     <p>Сік Yan Без цукру Апельсиновий 930 мл</p>
                     <p>Стара ціна: <del>200 грн</del></p>
                     <p>Нова ціна: <span style="color: red;">160 грн</span></p>
-                    <button class="add-to-cart-btn">Додати в кошик</button>
+                    <div class="quantity-control">
+                        <button class="decrease-quantity">-</button>
+                        <span class="quantity-text">1</span>
+                        <button class="increase-quantity">+</button>
+                    </div>
+                    <button class="add-to-cart-btn" onclick="addToCart(this)">Додати в кошик</button>
                 </div>
-                <div class="product-card">
-                    <img style=" height: 150px;" src="/pictures/napii12.webp" alt="Зображення товару 4">
+                <div class="product-card" data-product-name="Сік Yan Без цукру Гранат 930 мл" data-product-image="/pictures/napii12.webp" data-product-price="200">
+                    <img style="height: 150px;" src="/pictures/napii12.webp" alt="Сік Yan Без цукру Гранат 930 мл">
                     <p>Сік Yan Без цукру Гранат 930 мл</p>
                     <p>Стара ціна: <del>250 грн</del></p>
                     <p>Нова ціна: <span style="color: red;">200 грн</span></p>
-                    <button class="add-to-cart-btn">Додати в кошик</button>
+                    <div class="quantity-control">
+                        <button class="decrease-quantity">-</button>
+                        <span class="quantity-text">1</span>
+                        <button class="increase-quantity">+</button>
+                    </div>
+                    <button class="add-to-cart-btn" onclick="addToCart(this)">Додати в кошик</button>
                 </div>
-            </div>
+            </div>            
         </div>  
     </div>  
         
@@ -181,35 +267,60 @@
         
           <script src="script.js"></script>
           <script>
-            document.addEventListener('DOMContentLoaded', () => {
-            const addToCartButtons = document.querySelectorAll('.add-to-cart-btn');
-            const cartIcon = document.querySelector('img[alt="Icon 3"]');
-            
-            let cartCountSpan = document.createElement('span');
-            cartCountSpan.style.position = 'absolute';
-            cartCountSpan.style.top = '0';
-            cartCountSpan.style.right = '0';
-            cartCountSpan.style.backgroundColor = 'red';
-            cartCountSpan.style.color = 'white';
-            cartCountSpan.style.borderRadius = '50%';
-            cartCountSpan.style.padding = '0 5px';
-            cartCountSpan.style.fontSize = '12px';
-            cartCountSpan.style.display = 'none';  
-            
-            cartIcon.parentElement.style.position = 'relative';  
-            cartIcon.parentElement.appendChild(cartCountSpan);
-        
-            let cartCount = 0;
-        
-            addToCartButtons.forEach(button => {
-                button.addEventListener('click', () => {
-                    cartCount++;
-                    cartCountSpan.textContent = cartCount;
-                    cartCountSpan.style.display = 'inline';
-                });
+            document.addEventListener('DOMContentLoaded', function() {
+            const updateCartCount = () => {
+                const cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
+                const cartCountSpan = document.getElementById('cart-count');
+                cartCountSpan.textContent = cartItems.length;
+                cartCountSpan.style.display = cartItems.length > 0 ? 'block' : 'none';
+            };
+
+            const changeQuantity = (element, change) => {
+                const quantityText = element.parentElement.querySelector('.quantity-text');
+                let quantity = parseInt(quantityText.textContent, 10);
+                quantity += change;
+                if (quantity < 1) quantity = 1;
+                quantityText.textContent = quantity;
+            };
+
+            document.querySelectorAll('.increase-quantity').forEach(button => {
+                button.addEventListener('click', () => changeQuantity(button, 1));
             });
-        });
-                  </script>
+
+            document.querySelectorAll('.decrease-quantity').forEach(button => {
+                button.addEventListener('click', () => changeQuantity(button, -1));
+            });
+
+            const addToCart = (button) => {
+            const productCard = button.parentElement;
+            const productName = productCard.dataset.productName;
+            const productImage = productCard.dataset.productImage;
+            const productPrice = parseFloat(productCard.dataset.productPrice);
+            const quantity = parseInt(productCard.querySelector('.quantity-text').textContent, 10);
+
+            let cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
+            const index = cartItems.findIndex(cartItem => cartItem.name === productName);
+
+            if (index !== -1) {
+                cartItems[index].quantity += quantity;
+            } else {
+                cartItems.push({ name: productName, image: productImage, price: productPrice, quantity: quantity }); 
+            }
+
+            localStorage.setItem('cartItems', JSON.stringify(cartItems));
+            updateCartCount(); 
+        };
+
+
+
+            document.querySelectorAll('.add-to-cart-btn').forEach(button => {
+                button.addEventListener('click', () => addToCart(button));
+            });
+
+            updateCartCount();
+        });  
+        </script>
+
     </body>
 </body>
 </html>

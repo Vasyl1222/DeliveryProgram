@@ -9,15 +9,41 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
 </head>
 <body>
-    
+    <style>
+        .quantity-control {
+            display: center;
+            align-items: center;
+        }
+
+        .quantity-control button {
+            background-color: #555;
+            border: none;
+            padding: 5px 10px;
+            cursor: pointer;
+        }
+
+        .quantity-control .quantity-text {
+            margin: 0 10px;
+        }
+        .increase-quantity{
+            color: white;
+        }
+        .decrease-quantity{
+            color: white;
+        }
+    </style>
     <header class="header">
-        <a href="products.html"><img class="logo" style="width: 100px; " src="/pictures/logo.png" alt=""></a>
+        <a href="products.html"><img class="logo" style="width: 100px;" src="/pictures/logo.png" alt=""></a>
         <h1 style="margin-left: 150px;">Grocery Express</h1>
         <div class="header-icons">
-            <a href="#"><img style="width: 40px; height: 40px; margin-right: 15px;" src="https://img.icons8.com/?size=100&id=7820&format=png&color=FFFFFF" alt="Icon 1"></a>
-            <a href="#"><img style=" background-color: none; width: 40px; height: 40px; margin-right: 15px;" src="https://img.icons8.com/?size=100&id=xjnMGXwRRjbC&format=png&color=FFFFFF" alt="Icon 2">            </a>
+            <a href="kabinet.html"><img style="width: 40px; height: 40px; margin-right: 15px;" src="https://img.icons8.com/?size=100&id=7820&format=png&color=FFFFFF" alt="Icon 1"></a>
+            <a href="koshuk.html" style="position: relative;">
+                <img style="width: 40px; height: 40px; margin-right: 15px;" src="https://img.icons8.com/?size=100&id=xjnMGXwRRjbC&format=png&color=FFFFFF" alt="Icon 3">
+                <span id="cart-count" style="position: absolute; top: 0; right: 0; background-color: red; color: white; border-radius: 50%; padding: 0 5px; font-size: 12px; display: none;"></span>
+            </a>
+            
             <a href="#"><img style="width: 40px; height: 40px; margin-right: 15px;" src="https://img.icons8.com/?size=100&id=487&format=png&color=FFFFFF" alt="Icon 3"></a>
-            <a href="reviews.html"><img style="width: 40px; height: 40px; margin-right: 15px;" src="pictures/reviews.png" alt="Icon 4"></a>
+            <a href="index.html"><img style="width: 40px; height: 40px; margin-right: 15px;" src="https://img.icons8.com/?size=100&id=1090&format=png&color=FFFFFF" alt=""></a>
         </div>
     </header>
 
@@ -65,94 +91,154 @@
                 <h3>Десерти та солодощі</h3>
             </div>
             <div class="product-container" >
-                <div class="product-card">
-                    <img style=" height: 150px;" src="pictures/magnumclassic1.png" alt="Зображення товару 1">
+                <div class="product-card" data-product-name="Magnum Classic" data-product-image="pictures/magnumclassic1.png" data-product-price="60">
+                    <img style="height: 150px;" src="pictures/magnumclassic1.png" alt="Magnum Classic">
                     <p>Magnum Classic</p>
                     <p>Стара ціна: <del>70 грн</del></p>
                     <p>Нова ціна: <span style="color: red;">60 грн</span></p>
+                    <div class="quantity-control">
+                        <button class="decrease-quantity">-</button>
+                        <span class="quantity-text">1</span>
+                        <button class="increase-quantity">+</button>
+                    </div>
                     <button class="add-to-cart-btn">Додати в кошик</button>
                 </div>
-                <div class="product-card">
-                    <img style=" height: 150px;" src="pictures/magnumcollectionruby.png" alt="Зображення товару 2">
+                <div class="product-card" data-product-name="Magnum Collection Ruby" data-product-image="pictures/magnumcollectionruby.png" data-product-price="70">
+                    <img style="height: 150px;" src="pictures/magnumcollectionruby.png" alt="Magnum Collection Ruby">
                     <p>Magnum Collection Ruby</p>
                     <p>Стара ціна: <del>80 грн</del></p>
                     <p>Нова ціна: <span style="color: red;">70 грн</span></p>
+                    <div class="quantity-control">
+                        <button class="decrease-quantity">-</button>
+                        <span class="quantity-text">1</span>
+                        <button class="increase-quantity">+</button>
+                    </div>
                     <button class="add-to-cart-btn">Додати в кошик</button>
                 </div>
-                <div class="product-card">
-                    <img style=" height: 150px;" src="pictures/magnumdoublechocolate.png" alt="Зображення товару 3">
+                <div class="product-card" data-product-name="Magnum Double Chocolate" data-product-image="pictures/magnumdoublechocolate.png" data-product-price="70">
+                    <img style="height: 150px;" src="pictures/magnumdoublechocolate.png" alt="Magnum Double Chocolate">
                     <p>Magnum Double Chocolate</p>
                     <p>Стара ціна: <del>80 грн</del></p>
                     <p>Нова ціна: <span style="color: red;">70 грн</span></p>
+                    <div class="quantity-control">
+                        <button class="decrease-quantity">-</button>
+                        <span class="quantity-text">1</span>
+                        <button class="increase-quantity">+</button>
+                    </div>
                     <button class="add-to-cart-btn">Додати в кошик</button>
                 </div>
-                <div class="product-card">
-                    <img style=" height: 150px;" src="pictures/magnumdoubleraspberry.png" alt="Зображення товару 4">
+                <div class="product-card" data-product-name="Magnum Double Raspberry" data-product-image="pictures/magnumdoubleraspberry.png" data-product-price="70">
+                    <img style="height: 150px;" src="pictures/magnumdoubleraspberry.png" alt="Magnum Double Raspberry">
                     <p>Magnum Double Raspberry</p>
                     <p>Стара ціна: <del>80 грн</del></p>
                     <p>Нова ціна: <span style="color: red;">70 грн</span></p>
+                    <div class="quantity-control">
+                        <button class="decrease-quantity">-</button>
+                        <span class="quantity-text">1</span>
+                        <button class="increase-quantity">+</button>
+                    </div>
                     <button class="add-to-cart-btn">Додати в кошик</button>
-                </div>
+                </div>                
             </div>
             <div class="product-container">
-                <div class="product-card">
-                    <img style=" height: 150px;" src="pictures/cakegoldkey.jpg" alt="Зображення товару 1">
+                <div class="product-card" data-product-name="Золотий ключик" data-product-image="pictures/cakegoldkey.jpg" data-product-price="500">
+                    <img style="height: 150px;" src="pictures/cakegoldkey.jpg" alt="Золотий ключик">
                     <p>Золотий ключик</p>
                     <p>Стара ціна: <del>550 грн</del></p>
                     <p>Нова ціна: <span style="color: red;">500 грн</span></p>
+                    <div class="quantity-control">
+                        <button class="decrease-quantity">-</button>
+                        <span class="quantity-text">1</span>
+                        <button class="increase-quantity">+</button>
+                    </div>
                     <button class="add-to-cart-btn">Додати в кошик</button>
                 </div>
-                <div class="product-card">
-                    <img style=" height: 150px;" src="pictures/cakemozart.webp" alt="Зображення товару 2">
+                <div class="product-card" data-product-name="Торт &quot;Моцарт&quot;" data-product-image="pictures/cakemozart.webp" data-product-price="650">
+                    <img style="height: 150px;" src="pictures/cakemozart.webp" alt="Торт &quot;Моцарт&quot;">
                     <p>Торт "Моцарт"</p>
                     <p>Стара ціна: <del>700 грн</del></p>
                     <p>Нова ціна: <span style="color: red;">650 грн</span></p>
+                    <div class="quantity-control">
+                        <button class="decrease-quantity">-</button>
+                        <span class="quantity-text">1</span>
+                        <button class="increase-quantity">+</button>
+                    </div>
                     <button class="add-to-cart-btn">Додати в кошик</button>
                 </div>
-                <div class="product-card">
-                    <img style=" height: 150px;" src="pictures/cakepraga.png" alt="Зображення товару 3">
+                <div class="product-card" data-product-name="Празький торт" data-product-image="pictures/cakepraga.png" data-product-price="500">
+                    <img style="height: 150px;" src="pictures/cakepraga.png" alt="Празький торт">
                     <p>Празький торт</p>
                     <p>Стара ціна: <del>550 грн</del></p>
                     <p>Нова ціна: <span style="color: red;">500 грн</span></p>
+                    <div class="quantity-control">
+                        <button class="decrease-quantity">-</button>
+                        <span class="quantity-text">1</span>
+                        <button class="increase-quantity">+</button>
+                    </div>
                     <button class="add-to-cart-btn">Додати в кошик</button>
                 </div>
-                <div class="product-card">
-                    <img style=" height: 150px;" src="pictures/kievcake.jpg" alt="Зображення товару 4">
+                <div class="product-card" data-product-name="Київський торт" data-product-image="pictures/kievcake.jpg" data-product-price="500">
+                    <img style="height: 150px;" src="pictures/kievcake.jpg" alt="Київський торт">
                     <p>Київський торт</p>
                     <p>Стара ціна: <del>550 грн</del></p>
                     <p>Нова ціна: <span style="color: red;">500 грн</span></p>
+                    <div class="quantity-control">
+                        <button class="decrease-quantity">-</button>
+                        <span class="quantity-text">1</span>
+                        <button class="increase-quantity">+</button>
+                    </div>
                     <button class="add-to-cart-btn">Додати в кошик</button>
                 </div>
             </div>
             <div class="product-container">
-                <div class="product-card">
-                    <img style=" height: 150px;" src="pictures/macaroon.jpeg" alt="Зображення товару 1">
+                <div class="product-card" data-product-name="Macaroon фісташка" data-product-image="pictures/macaroon.jpeg" data-product-price="40">
+                    <img style="height: 150px;" src="pictures/macaroon.jpeg" alt="Macaroon фісташка">
                     <p>Macaroon фісташка</p>
                     <p>Стара ціна: <del>45 грн</del></p>
                     <p>Нова ціна: <span style="color: red;">40 грн</span></p>
+                    <div class="quantity-control">
+                        <button class="decrease-quantity">-</button>
+                        <span class="quantity-text">1</span>
+                        <button class="increase-quantity">+</button>
+                    </div>
                     <button class="add-to-cart-btn">Додати в кошик</button>
                 </div>
-                <div class="product-card">
-                    <img style=" height: 150px;" src="pictures/macaroon2.jpg" alt="Зображення товару 2">
+                <div class="product-card" data-product-name="Macaroon ваніль-карамель" data-product-image="pictures/macaroon2.jpg" data-product-price="40">
+                    <img style="height: 150px;" src="pictures/macaroon2.jpg" alt="Macaroon ваніль-карамель">
                     <p>Macaroon ваніль-карамель</p>
                     <p>Стара ціна: <del>45 грн</del></p>
                     <p>Нова ціна: <span style="color: red;">40 грн</span></p>
+                    <div class="quantity-control">
+                        <button class="decrease-quantity">-</button>
+                        <span class="quantity-text">1</span>
+                        <button class="increase-quantity">+</button>
+                    </div>
                     <button class="add-to-cart-btn">Додати в кошик</button>
                 </div>
-                <div class="product-card">
-                    <img style=" height: 150px;" src="pictures/mochisrtaw.png" alt="Зображення товару 3">
+                <div class="product-card" data-product-name="Mochi полуниця-пломбір" data-product-image="pictures/mochisrtaw.png" data-product-price="40">
+                    <img style="height: 150px;" src="pictures/mochisrtaw.png" alt="Mochi полуниця-пломбір">
                     <p>Mochi полуниця-пломбір</p>
                     <p>Стара ціна: <del>45 грн</del></p>
                     <p>Нова ціна: <span style="color: red;">40 грн</span></p>
+                    <div class="quantity-control">
+                        <button class="decrease-quantity">-</button>
+                        <span class="quantity-text">1</span>
+                        <button class="increase-quantity">+</button>
+                    </div>
                     <button class="add-to-cart-btn">Додати в кошик</button>
                 </div>
-                <div class="product-card">
-                    <img style=" height: 150px;" src="pictures/mochicoconut.webp" alt="Зображення товару 4">
+                <div class="product-card" data-product-name="Mochi кокос-пломбір" data-product-image="pictures/mochicoconut.webp" data-product-price="40">
+                    <img style="height: 150px;" src="pictures/mochicoconut.webp" alt="Mochi кокос-пломбір">
                     <p>Mochi кокос-пломбір</p>
                     <p>Стара ціна: <del>45 грн</del></p>
                     <p>Нова ціна: <span style="color: red;">40 грн</span></p>
+                    <div class="quantity-control">
+                        <button class="decrease-quantity">-</button>
+                        <span class="quantity-text">1</span>
+                        <button class="increase-quantity">+</button>
+                    </div>
                     <button class="add-to-cart-btn">Додати в кошик</button>
-                </div>
+                </div>                
             </div>
         </div>
     </div>
@@ -188,34 +274,58 @@
     
       <script src="script.js"></script>
       <script>
-        document.addEventListener('DOMContentLoaded', () => {
-        const addToCartButtons = document.querySelectorAll('.add-to-cart-btn');
-        const cartIcon = document.querySelector('img[alt="Icon 3"]');
-        
-        let cartCountSpan = document.createElement('span');
-        cartCountSpan.style.position = 'absolute';
-        cartCountSpan.style.top = '0';
-        cartCountSpan.style.right = '0';
-        cartCountSpan.style.backgroundColor = 'red';
-        cartCountSpan.style.color = 'white';
-        cartCountSpan.style.borderRadius = '50%';
-        cartCountSpan.style.padding = '0 5px';
-        cartCountSpan.style.fontSize = '12px';
-        cartCountSpan.style.display = 'none';  
-        
-        cartIcon.parentElement.style.position = 'relative';  
-        cartIcon.parentElement.appendChild(cartCountSpan);
-    
-        let cartCount = 0;
-    
-        addToCartButtons.forEach(button => {
-            button.addEventListener('click', () => {
-                cartCount++;
-                cartCountSpan.textContent = cartCount;
-                cartCountSpan.style.display = 'inline';
+            document.addEventListener('DOMContentLoaded', function() {
+            const updateCartCount = () => {
+                const cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
+                const cartCountSpan = document.getElementById('cart-count');
+                cartCountSpan.textContent = cartItems.length;
+                cartCountSpan.style.display = cartItems.length > 0 ? 'block' : 'none';
+            };
+
+            const changeQuantity = (element, change) => {
+                const quantityText = element.parentElement.querySelector('.quantity-text');
+                let quantity = parseInt(quantityText.textContent, 10);
+                quantity += change;
+                if (quantity < 1) quantity = 1;
+                quantityText.textContent = quantity;
+            };
+
+            document.querySelectorAll('.increase-quantity').forEach(button => {
+                button.addEventListener('click', () => changeQuantity(button, 1));
             });
-        });
-    });
+
+            document.querySelectorAll('.decrease-quantity').forEach(button => {
+                button.addEventListener('click', () => changeQuantity(button, -1));
+            });
+
+            const addToCart = (button) => {
+            const productCard = button.parentElement;
+            const productName = productCard.dataset.productName;
+            const productImage = productCard.dataset.productImage;
+            const productPrice = parseFloat(productCard.dataset.productPrice);
+            const quantity = parseInt(productCard.querySelector('.quantity-text').textContent, 10);
+
+            let cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
+            const index = cartItems.findIndex(cartItem => cartItem.name === productName);
+
+            if (index !== -1) {
+                cartItems[index].quantity += quantity;
+            } else {
+                cartItems.push({ name: productName, image: productImage, price: productPrice, quantity: quantity }); 
+            }
+
+            localStorage.setItem('cartItems', JSON.stringify(cartItems));
+            updateCartCount(); 
+        };
+
+
+
+            document.querySelectorAll('.add-to-cart-btn').forEach(button => {
+                button.addEventListener('click', () => addToCart(button));
+            });
+
+            updateCartCount();
+        });  
               </script>
 </body>
 </html>

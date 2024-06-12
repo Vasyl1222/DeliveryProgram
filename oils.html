@@ -9,20 +9,46 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
 </head>
 <body>
-    
-    <header class="header">
-        <a href="products.html"><img class="logo" style="width: 100px; " src="/pictures/logo.png" alt=""></a>
+    <style>
+        .quantity-control {
+            display: center;
+            align-items: center;
+        }
+
+        .quantity-control button {
+            background-color: #555;
+            border: none;
+            padding: 5px 10px;
+            cursor: pointer;
+        }
+
+        .quantity-control .quantity-text {
+            margin: 0 10px;
+        }
+        .increase-quantity{
+            color: white;
+        }
+        .decrease-quantity{
+            color: white;
+        }
+    </style>
+     <header class="header">
+        <a href="products.html"><img class="logo" style="width: 100px;" src="/pictures/logo.png" alt=""></a>
         <h1 style="margin-left: 150px;">Grocery Express</h1>
         <div class="header-icons">
-            <a href="#"><img style="width: 40px; height: 40px; margin-right: 15px;" src="https://img.icons8.com/?size=100&id=7820&format=png&color=FFFFFF" alt="Icon 1"></a>
-            <a href="#"><img style=" background-color: none; width: 40px; height: 40px; margin-right: 15px;" src="https://img.icons8.com/?size=100&id=xjnMGXwRRjbC&format=png&color=FFFFFF" alt="Icon 2">            </a>
+            <a href="kabinet.html"><img style="width: 40px; height: 40px; margin-right: 15px;" src="https://img.icons8.com/?size=100&id=7820&format=png&color=FFFFFF" alt="Icon 1"></a>
+            <a href="koshuk.html" style="position: relative;">
+                <img style="width: 40px; height: 40px; margin-right: 15px;" src="https://img.icons8.com/?size=100&id=xjnMGXwRRjbC&format=png&color=FFFFFF" alt="Icon 3">
+                <span id="cart-count" style="position: absolute; top: 0; right: 0; background-color: red; color: white; border-radius: 50%; padding: 0 5px; font-size: 12px; display: none;"></span>
+            </a>
+            
             <a href="#"><img style="width: 40px; height: 40px; margin-right: 15px;" src="https://img.icons8.com/?size=100&id=487&format=png&color=FFFFFF" alt="Icon 3"></a>
-            <a href="reviews.html"><img style="width: 40px; height: 40px; margin-right: 15px;" src="pictures/reviews.png" alt="Icon 4"></a>
+            <a href="index.html"><img style="width: 40px; height: 40px; margin-right: 15px;" src="https://img.icons8.com/?size=100&id=1090&format=png&color=FFFFFF" alt=""></a>
         </div>
     </header>
 
     <div class="col">
-        <div class="sidebar active" style="margin-top: 100px; margin-bottom: -500px;">
+        <div class="sidebar active" style="margin-top: 100px; margin-bottom: -200px;">
             <div class="sidebar-content" style="margin-left: 20px;">
                 <p style="color: white; font-size: 30px; margin-bottom: 20px; ">Каталог</p>
                 <table>
@@ -63,95 +89,155 @@
                 <h3 >Олії</h3>
             </div>
             <div class="product-container" >
-                <div class="product-card">
-                    <img style=" height: 150px;" src="/pictures/oils1.webp" alt="Цукор ">
+                <div class="product-card" data-product-name="Оливкова олія Borges Extra Virgin 500мл" data-product-image="/pictures/oils1.webp" data-product-price="370">
+                    <img style="height: 150px;" src="/pictures/oils1.webp" alt="Оливкова олія Borges Extra Virgin 500мл">
                     <p>Оливкова олія Borges Extra Virgin 500мл</p>
                     <p>Стара ціна: <del>430 грн</del></p>
                     <p>Нова ціна: <span style="color: red;">370 грн</span></p>
-                    <button class="add-to-cart-btn">Додати в кошик</button>
+                    <div class="quantity-control">
+                        <button class="decrease-quantity">-</button>
+                        <span class="quantity-text">1</span>
+                        <button class="increase-quantity">+</button>
+                    </div>
+                    <button class="add-to-cart-btn" onclick="addToCart(this)">Додати в кошик</button>
                 </div>
-                <div class="product-card">
-                    <img style=" height: 150px;" src="/pictures/oils2.webp" alt="Зображення товару 2">
-                    <p>Оливкова олія Costa d'Oro Sansa 500мл</p>
-                    <p>Стара ціна: <del>300 грн</del></p>
-                    <p>Нова ціна: <span style="color: red;">250 грн</span></p>
-                    <button class="add-to-cart-btn">Додати в кошик</button>
+                <div class="product-card" data-product-name="Олия сливова Le Саstel 250мл" data-product-image="/pictures/oils5.webp" data-product-price="120">
+                    <img style="height: 150px;" src="/pictures/oils5.webp" alt="Олия сливова Le Саstel 250мл">
+                    <p>Олия сливова Le Саstel 250мл</p>
+                    <p>Стара ціна: <del>150 грн</del></p>
+                    <p>Нова ціна: <span style="color: red;">120 грн</span></p>
+                    <div class="quantity-control">
+                        <button class="decrease-quantity">-</button>
+                        <span class="quantity-text">1</span>
+                        <button class="increase-quantity">+</button>
+                    </div>
+                    <button class="add-to-cart-btn" onclick="addToCart(this)">Додати в кошик</button>
                 </div>
-                <div class="product-card">
-                    <img style=" height: 150px;" src="/pictures/oils3.webp" alt="Зображення товару 3">
-                    <p>Олія з виноградних кісточок Costa d'Oro 1л</p>
-                    <p>Стара ціна: <del>500 грн</del></p>
-                    <p>Нова ціна: <span style="color: red;">390 грн</span></p>
-                    <button class="add-to-cart-btn">Додати в кошик</button>
+                <div class="product-card" data-product-name="Олія кедрова Таежная 100мл" data-product-image="/pictures/oils6.webp" data-product-price="150">
+                    <img style="height: 150px;" src="/pictures/oils6.webp" alt="Олія кедрова Таежная 100мл">
+                    <p>Олія кедрова Таежная 100мл</p>
+                    <p>Стара ціна: <del>180 грн</del></p>
+                    <p>Нова ціна: <span style="color: red;">150 грн</span></p>
+                    <div class="quantity-control">
+                        <button class="decrease-quantity">-</button>
+                        <span class="quantity-text">1</span>
+                        <button class="increase-quantity">+</button>
+                    </div>
+                    <button class="add-to-cart-btn" onclick="addToCart(this)">Додати в кошик</button>
                 </div>
-                <div class="product-card">
-                    <img style=" height: 150px;" src="/pictures/oils4.webp" alt="Зображення товару 4">
-                    <p>Олія з виноградних кісточок Monini 500мл</p>
-                    <p>Стара ціна: <del>420 грн</del></p>
-                    <p>Нова ціна: <span style="color: red;">240 грн</span></p>
-                    <button class="add-to-cart-btn">Додати в кошик</button>
+                <div class="product-card" data-product-name="Олія льняна Organic Flaxseed Oil 250мл" data-product-image="/pictures/oils7.webp" data-product-price="170">
+                    <img style="height: 150px;" src="/pictures/oils7.webp" alt="Олія льняна Organic Flaxseed Oil 250мл">
+                    <p>Олія льняна Organic Flaxseed Oil 250мл</p>
+                    <p>Стара ціна: <del>200 грн</del></p>
+                    <p>Нова ціна: <span style="color: red;">170 грн</span></p>
+                    <div class="quantity-control">
+                        <button class="decrease-quantity">-</button>
+                        <span class="quantity-text">1</span>
+                        <button class="increase-quantity">+</button>
+                    </div>
+                    <button class="add-to-cart-btn" onclick="addToCart(this)">Додати в кошик</button>
                 </div>
             </div>
             <div class="product-container">
-                <div class="product-card">
-                    <img style=" height: 150px;" src="/pictures/oils5.webp" alt="Зображення товару 1">
-                    <p>Олія кунжутна Десналенд 250мл </p>
+                <div class="product-card" data-product-name="Олія кунжутна Десналенд 250мл" data-product-image="/pictures/oils5.webp" data-product-price="190">
+                    <img style="height: 150px;" src="/pictures/oils5.webp" alt="Зображення товару 1">
+                    <p>Олія кунжутна Десналенд 250мл</p>
                     <p>Стара ціна: <del>220 грн</del></p>
                     <p>Нова ціна: <span style="color: red;">190 грн</span></p>
-                    <button class="add-to-cart-btn">Додати в кошик</button>
+                    <div class="quantity-control">
+                        <button class="decrease-quantity">-</button>
+                        <span class="quantity-text">1</span>
+                        <button class="increase-quantity">+</button>
+                    </div>
+                    <button class="add-to-cart-btn" onclick="addToCart(this)">Додати в кошик</button>
                 </div>
-                <div class="product-card">
-                    <img style=" height: 150px;" src="/pictures/oils6.webp" alt="Зображення товару 2">
+                <div class="product-card" data-product-name="Олія кунжутна La Tourangelle 250мл" data-product-image="/pictures/oils6.webp" data-product-price="380">
+                    <img style="height: 150px;" src="/pictures/oils6.webp" alt="Зображення товару 2">
                     <p>Олія кунжутна La Tourangelle 250мл</p>
                     <p>Стара ціна: <del>400 грн</del></p>
                     <p>Нова ціна: <span style="color: red;">380 грн</span></p>
-                    <button class="add-to-cart-btn">Додати в кошик</button>
+                    <div class="quantity-control">
+                        <button class="decrease-quantity">-</button>
+                        <span class="quantity-text">1</span>
+                        <button class="increase-quantity">+</button>
+                    </div>
+                    <button class="add-to-cart-btn" onclick="addToCart(this)">Додати в кошик</button>
                 </div>
-                <div class="product-card">
-                    <img style=" height: 150px;" src="/pictures/oils7.webp" alt="Зображення товару 3">
+                <div class="product-card" data-product-name="Олія соняшникова для смаження 1л" data-product-image="/pictures/oils7.webp" data-product-price="90">
+                    <img style="height: 150px;" src="/pictures/oils7.webp" alt="Зображення товару 3">
                     <p>Олія соняшникова для смаження 1л</p>
                     <p>Стара ціна: <del>100 грн</del></p>
                     <p>Нова ціна: <span style="color: red;">90 грн</span></p>
-                    <button class="add-to-cart-btn">Додати в кошик</button>
+                    <div class="quantity-control">
+                        <button class="decrease-quantity">-</button>
+                        <span class="quantity-text">1</span>
+                        <button class="increase-quantity">+</button>
+                    </div>
+                    <button class="add-to-cart-btn" onclick="addToCart(this)">Додати в кошик</button>
                 </div>
-                <div class="product-card">
-                    <img style=" height: 150px;" src="/pictures/oils8.webp" alt="Зображення товару 4">
+                <div class="product-card" data-product-name="Олія соняшникова Екород 500мл" data-product-image="/pictures/oils8.webp"  data-product-price="130">
+                    <img style="height: 150px;" src="/pictures/oils8.webp" alt="Зображення товару 4">
                     <p>Олія соняшникова Екород 500мл</p>
                     <p>Стара ціна: <del>150 грн</del></p>
                     <p>Нова ціна: <span style="color: red;">130 грн</span></p>
-                    <button class="add-to-cart-btn">Додати в кошик</button>
+                    <div class="quantity-control">
+                        <button class="decrease-quantity">-</button>
+                        <span class="quantity-text">1</span>
+                        <button class="increase-quantity">+</button>
+                    </div>
+                    <button class="add-to-cart-btn" onclick="addToCart(this)">Додати в кошик</button>
                 </div>
-            </div>
+            </div>            
             <div class="product-container">
-                <div class="product-card">
-                    <img style=" height: 150px;" src="/pictures/oils9.webp" alt="Зображення товару 1">
+                <div class="product-card" data-product-name="Олія La Tourangelle авокадо 250мл" data-product-image="/pictures/oils9.webp" data-product-price="380">
+                    <img style="height: 150px;" src="/pictures/oils9.webp" alt="Зображення товару 1">
                     <p>Олія La Tourangelle авокадо 250мл</p>
                     <p>Стара ціна: <del>440 грн</del></p>
                     <p>Нова ціна: <span style="color: red;">380 грн</span></p>
-                    <button class="add-to-cart-btn">Додати в кошик</button>
+                    <div class="quantity-control">
+                        <button class="decrease-quantity">-</button>
+                        <span class="quantity-text">1</span>
+                        <button class="increase-quantity">+</button>
+                    </div>
+                    <button class="add-to-cart-btn" onclick="addToCart(this)">Додати в кошик</button>
                 </div>
-                <div class="product-card">
-                    <img style=" height: 150px;" src="pictures/oils10.webp" alt="Зображення товару 2">
+                <div class="product-card" data-product-name="Олія авокадо першого віджиму Biedronka 250мл" data-product-image="/pictures/oils10.webp" data-product-price="265">
+                    <img style="height: 150px;" src="/pictures/oils10.webp" alt="Зображення товару 2">
                     <p>Олія авокадо першого віджиму Biedronka 250мл</p>
                     <p>Стара ціна: <del>300 грн</del></p>
                     <p>Нова ціна: <span style="color: red;">265 грн</span></p>
-                    <button class="add-to-cart-btn">Додати в кошик</button>
+                    <div class="quantity-control">
+                        <button class="decrease-quantity">-</button>
+                        <span class="quantity-text">1</span>
+                        <button class="increase-quantity">+</button>
+                    </div>
+                    <button class="add-to-cart-btn" onclick="addToCart(this)">Додати в кошик</button>
                 </div>
-                <div class="product-card">
-                    <img style=" height: 150px;" src="/pictures/oils11.webp" alt="Зображення товару 3">
+                <div class="product-card" data-product-name="Олія ЇжЕко з насіння гірчиці 250мл" data-product-image="/pictures/oils11.webp" data-product-price="130">
+                    <img style="height: 150px;" src="/pictures/oils11.webp" alt="Зображення товару 3">
                     <p>Олія ЇжЕко з насіння гірчиці 250мл</p>
                     <p>Стара ціна: <del>150 грн</del></p>
                     <p>Нова ціна: <span style="color: red;">130 грн</span></p>
-                    <button class="add-to-cart-btn">Додати в кошик</button>
+                    <div class="quantity-control">
+                        <button class="decrease-quantity">-</button>
+                        <span class="quantity-text">1</span>
+                        <button class="increase-quantity">+</button>
+                    </div>
+                    <button class="add-to-cart-btn" onclick="addToCart(this)">Додати в кошик</button>
                 </div>
-                <div class="product-card">
-                    <img style=" height: 150px;" src="/pictures/oils12.webp" alt="Зображення товару 4">
+                <div class="product-card" data-product-name="Олія з насіння гірчиці Кама 500мл" data-product-image="/pictures/oils12.webp" data-product-price="140">
+                    <img style="height: 150px;" src="/pictures/oils12.webp" alt="Зображення товару 4">
                     <p>Олія з насіння гірчиці Кама 500мл</p>
                     <p>Стара ціна: <del>160 грн</del></p>
                     <p>Нова ціна: <span style="color: red;">140 грн</span></p>
-                    <button class="add-to-cart-btn">Додати в кошик</button>
+                    <div class="quantity-control">
+                        <button class="decrease-quantity">-</button>
+                        <span class="quantity-text">1</span>
+                        <button class="increase-quantity">+</button>
+                    </div>
+                    <button class="add-to-cart-btn" onclick="addToCart(this)">Додати в кошик</button>
                 </div>
-            </div>
+            </div>            
         </div>  
     </div>  
         
@@ -180,35 +266,58 @@
         
           <script src="script.js"></script>
           <script>
-            document.addEventListener('DOMContentLoaded', () => {
-            const addToCartButtons = document.querySelectorAll('.add-to-cart-btn');
-            const cartIcon = document.querySelector('img[alt="Icon 3"]');
-            
-            let cartCountSpan = document.createElement('span');
-            cartCountSpan.style.position = 'absolute';
-            cartCountSpan.style.top = '0';
-            cartCountSpan.style.right = '0';
-            cartCountSpan.style.backgroundColor = 'red';
-            cartCountSpan.style.color = 'white';
-            cartCountSpan.style.borderRadius = '50%';
-            cartCountSpan.style.padding = '0 5px';
-            cartCountSpan.style.fontSize = '12px';
-            cartCountSpan.style.display = 'none';  
-            
-            cartIcon.parentElement.style.position = 'relative';  
-            cartIcon.parentElement.appendChild(cartCountSpan);
-        
-            let cartCount = 0;
-        
-            addToCartButtons.forEach(button => {
-                button.addEventListener('click', () => {
-                    cartCount++;
-                    cartCountSpan.textContent = cartCount;
-                    cartCountSpan.style.display = 'inline';
-                });
+            document.addEventListener('DOMContentLoaded', function() {
+            const updateCartCount = () => {
+                const cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
+                const cartCountSpan = document.getElementById('cart-count');
+                cartCountSpan.textContent = cartItems.length;
+                cartCountSpan.style.display = cartItems.length > 0 ? 'block' : 'none';
+            };
+
+            const changeQuantity = (element, change) => {
+                const quantityText = element.parentElement.querySelector('.quantity-text');
+                let quantity = parseInt(quantityText.textContent, 10);
+                quantity += change;
+                if (quantity < 1) quantity = 1;
+                quantityText.textContent = quantity;
+            };
+
+            document.querySelectorAll('.increase-quantity').forEach(button => {
+                button.addEventListener('click', () => changeQuantity(button, 1));
             });
-        });
-                  </script>
+
+            document.querySelectorAll('.decrease-quantity').forEach(button => {
+                button.addEventListener('click', () => changeQuantity(button, -1));
+            });
+
+            const addToCart = (button) => {
+            const productCard = button.parentElement;
+            const productName = productCard.dataset.productName;
+            const productImage = productCard.dataset.productImage;
+            const productPrice = parseFloat(productCard.dataset.productPrice);
+            const quantity = parseInt(productCard.querySelector('.quantity-text').textContent, 10);
+
+            let cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
+            const index = cartItems.findIndex(cartItem => cartItem.name === productName);
+
+            if (index !== -1) {
+                cartItems[index].quantity += quantity;
+            } else {
+                cartItems.push({ name: productName, image: productImage, price: productPrice, quantity: quantity }); 
+            }
+
+            localStorage.setItem('cartItems', JSON.stringify(cartItems));
+            updateCartCount(); 
+        };
+
+
+
+            document.querySelectorAll('.add-to-cart-btn').forEach(button => {
+                button.addEventListener('click', () => addToCart(button));
+            });
+
+            updateCartCount();
+        });         </script>
     </body>
 </body>
 </html>

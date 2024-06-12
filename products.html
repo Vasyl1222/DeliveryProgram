@@ -2,14 +2,36 @@
 <html lang="uk">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=]">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Grocery Express</title>
     <link rel="stylesheet" href="style.css">
     <link rel="shortcut icon" href="/pictures/logo.png" type="image/png">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        .quantity-control {
+            display: center;
+            align-items: center;
+        }
+
+        .quantity-control button {
+            background-color: #555;
+            border: none;
+            padding: 5px 10px;
+            cursor: pointer;
+        }
+
+        .quantity-control .quantity-text {
+            margin: 0 10px;
+        }
+        .increase-quantity{
+            color: white;
+        }
+        .decrease-quantity{
+            color: white;
+        }
+    </style>
 </head>
 <body>
-    
     <header class="header">
         <a href="products.html"><img class="logo" style="width: 100px;" src="/pictures/logo.png" alt=""></a>
         <h1 style="margin-left: 150px;">Grocery Express</h1>
@@ -21,7 +43,6 @@
             </a>
             <a href="#"><img style="width: 40px; height: 40px; margin-right: 15px;" src="https://img.icons8.com/?size=100&id=487&format=png&color=FFFFFF" alt="Icon 3"></a>
             <a href="index.html"><img style="width: 40px; height: 40px; margin-right: 15px;" src="https://img.icons8.com/?size=100&id=1090&format=png&color=FFFFFF" alt=""></a>
-            <a href="reviews.html"><img style="width: 40px; height: 40px; margin-right: 15px;" src="pictures/reviews.png" alt="Icon 4"></a>
         </div>
     </header>
 
@@ -59,109 +80,171 @@
                         <td><a style="margin-top: 20px;" href="semifinishproducts.html" class="border-btn color-one">Підготовлені продукти</a></td>
                     </tr>
                     
+                    
                 </table>
             </div>
         </div>
-    
+
         <div class="all">
             <div class="h3">
                 <h3>Чудові пропозиції</h3>
             </div>
             <div class="product-container">
-                <div class="product-card" data-product-name="Оливки Lasada сорту Гордаль 198г" data-product-image="/pictures/konserva1.webp">
+                <div class="product-card" data-product-name="Оливки Lasada сорту Гордаль 198г" data-product-image="/pictures/konserva1.webp" data-product-price="300">
                     <img style="height: 150px;" src="/pictures/konserva1.webp" alt="Оливки Lasada сорту Гордаль 198г">
                     <p>Оливки Lasada сорту Гордаль 198г</p>
                     <p>Стара ціна: <del>380 грн</del></p>
                     <p>Нова ціна: <span style="color: red;">300 грн</span></p>
+                    <div class="quantity-control">
+                        <button class="decrease-quantity">-</button>
+                        <span class="quantity-text">1</span>
+                        <button class="increase-quantity">+</button>
+                    </div>
                     <button class="add-to-cart-btn" onclick="addToCart(this)">Додати в кошик</button>
-                </div>             
-                <div class="product-card" data-product-name="Сосиски Jano" data-product-image="/pictures/sausages.jpg">
+                </div>
+                
+                <div class="product-card" data-product-name="Сосиски Jano" data-product-image="/pictures/sausages.jpg" data-product-price="115">
                     <img src="/pictures/sausages.jpg" alt="Сосиски Jano">
                     <p>Сосиски Jano</p>
                     <p>Стара ціна: <del>130 грн</del></p>
                     <p>Нова ціна: <span style="color: red;">115 грн</span></p>
+                    <div class="quantity-control">
+                        <button class="decrease-quantity">-</button>
+                        <span class="quantity-text">1</span>
+                        <button class="increase-quantity">+</button>
+                    </div>
                     <button class="add-to-cart-btn" onclick="addToCart(this)">Додати в кошик</button>
                 </div>
-                <div class="product-card">
+                <div class="product-card" data-product-name="Сильногазована вода Coca Cola 0,75" data-product-image="/pictures/napii1.webp" data-product-price="30">
                     <img style="height: 150px;" src="/pictures/napii1.webp" alt="Сильногазована вода Coca Cola 0,75">
                     <p>Сильногазована вода Coca Cola 0,75</p>
                     <p>Стара ціна: <del>35 грн</del></p>
                     <p>Нова ціна: <span style="color: red;">30 грн</span></p>
-                    <button class="add-to-cart-btn">Додати в кошик</button>
+                    <div class="quantity-control">
+                        <button class="decrease-quantity">-</button>
+                        <span class="quantity-text">1</span>
+                        <button class="increase-quantity">+</button>
+                    </div>
+                    <button class="add-to-cart-btn" onclick="addToCart(this)">Додати в кошик</button>
                 </div>
-                <div class="product-card">
+                <div class="product-card" data-product-name="Оливкова олія Borges Extra Virgin 500мл" data-product-image="/pictures/oils1.webp" data-product-price="370">
                     <img style="height: 150px;" src="/pictures/oils1.webp" alt="Оливкова олія Borges Extra Virgin 500мл">
                     <p>Оливкова олія Borges Extra Virgin 500мл</p>
                     <p>Стара ціна: <del>430 грн</del></p>
                     <p>Нова ціна: <span style="color: red;">370 грн</span></p>
-                    <button class="add-to-cart-btn">Додати в кошик</button>
+                    <div class="quantity-control">
+                        <button class="decrease-quantity">-</button>
+                        <span class="quantity-text">1</span>
+                        <button class="increase-quantity">+</button>
+                    </div>
+                    <button class="add-to-cart-btn" onclick="addToCart(this)">Додати в кошик</button>
                 </div>
             </div>
             <div class="product-container">
-                <div class="product-card">
+                <div class="product-card" data-product-name="Фісташки Misso смажені солоні 450г" data-product-image="/pictures/sneki12.webp" data-product-price="400">
                     <img style="height: 150px;" src="/pictures/sneki12.webp" alt="Фісташки Misso смажені солоні 450г">
                     <p>Фісташки Misso смажені солоні 450г</p>
                     <p>Стара ціна: <del>500 грн</del></p>
                     <p>Нова ціна: <span style="color: red;">400 грн</span></p>
-                    <button class="add-to-cart-btn">Додати в кошик</button>
+                    <div class="quantity-control">
+                        <button class="decrease-quantity">-</button>
+                        <span class="quantity-text">1</span>
+                        <button class="increase-quantity">+</button>
+                    </div>
+                    <button class="add-to-cart-btn" onclick="addToCart(this)">Додати в кошик</button>
                 </div>
-                <div class="product-card">
+                <div class="product-card" data-product-name="Snikers hazelnut" data-product-image="/pictures/snikersHazelnut.jpg" data-product-price="30">
                     <img style="height: 150px;" src="/pictures/snikersHazelnut.jpg" alt="Snikers hazelnut">
                     <p>Snikers hazelnut</p>
                     <p>Стара ціна: <del>40 грн</del></p>
                     <p>Нова ціна: <span style="color: red;">30 грн</span></p>
-                    <button class="add-to-cart-btn">Додати в кошик</button>
+                    <div class="quantity-control">
+                        <button class="decrease-quantity">-</button>
+                        <span class="quantity-text">1</span>
+                        <button class="increase-quantity">+</button>
+                    </div>
+                    <button class="add-to-cart-btn" onclick="addToCart(this)">Додати в кошик</button>
                 </div>
-                <div class="product-card">
+                <div class="product-card" data-product-name="Соєвий соус класичний" data-product-image="/pictures/souseclassic.jpg" data-product-price="65">
                     <img style="height: 150px;" src="/pictures/souseclassic.jpg" alt="Соєвий соус класичний">
                     <p>Соєвий соус класичний</p>
                     <p>Стара ціна: <del>70 грн</del></p>
                     <p>Нова ціна: <span style="color: red;">65 грн</span></p>
-                    <button class="add-to-cart-btn">Додати в кошик</button>
+                    <div class="quantity-control">
+                        <button class="decrease-quantity">-</button>
+                        <span class="quantity-text">1</span>
+                        <button class="increase-quantity">+</button>
+                    </div>
+                    <button class="add-to-cart-btn" onclick="addToCart(this)">Додати в кошик</button>
                 </div>
-                <div class="product-card">
+                <div class="product-card" data-product-name="Кукурудзяні пластівці Start медові 700г" data-product-image="/pictures/start1.jpg" data-product-price="110">
                     <img style="height: 150px;" src="/pictures/start1.jpg" alt="Кукурудзяні пластівці Start медові 700 г">
-                    <p>Кукурудзяні пластівці Start медові 700 г</p>
+                    <p>Кукурудзяні пластівці Start медові 700г</p>
                     <p>Стара ціна: <del>130 грн</del></p>
                     <p>Нова ціна: <span style="color: red;">110 грн</span></p>
-                    <button class="add-to-cart-btn">Додати в кошик</button>
+                    <div class="quantity-control">
+                        <button class="decrease-quantity">-</button>
+                        <span class="quantity-text">1</span>
+                        <button class="increase-quantity">+</button>
+                    </div>
+                    <button class="add-to-cart-btn" onclick="addToCart(this)">Додати в кошик</button>
                 </div>
             </div>
             <div class="product-container">
-                <div class="product-card">
+                <div class="product-card" data-product-name="Хінкалі" data-product-image="/pictures/hinkali.png" data-product-price="65">
                     <img style="height: 150px;" src="/pictures/hinkali.png" alt="Хінкалі">
                     <p>Хінкалі</p>
                     <p>Стара ціна: <del>70 грн</del></p>
                     <p>Нова ціна: <span style="color: red;">65 грн</span></p>
-                    <button class="add-to-cart-btn">Додати в кошик</button>
+                    <div class="quantity-control">
+                        <button class="decrease-quantity">-</button>
+                        <span class="quantity-text">1</span>
+                        <button class="increase-quantity">+</button>
+                    </div>
+                    <button class="add-to-cart-btn" onclick="addToCart(this)">Додати в кошик</button>
                 </div>
-                <div class="product-card">
+                <div class="product-card" data-product-name="Ряжанка" data-product-image="/pictures/ryajanka.webp" data-product-price="45">
                     <img style="height: 150px;" src="/pictures/ryajanka.webp" alt="Ряжанка">
                     <p>Ряжанка</p>
                     <p>Стара ціна: <del>50 грн</del></p>
                     <p>Нова ціна: <span style="color: red;">45 грн</span></p>
-                    <button class="add-to-cart-btn">Додати в кошик</button>
+                    <div class="quantity-control">
+                        <button class="decrease-quantity">-</button>
+                        <span class="quantity-text">1</span>
+                        <button class="increase-quantity">+</button>
+                    </div>
+                    <button class="add-to-cart-btn" onclick="addToCart(this)">Додати в кошик</button>
                 </div>
-                <div class="product-card">
+                <div class="product-card" data-product-name="Різдвяне пиво" data-product-image="/pictures/beerchrismas.webp" data-product-price="55">
                     <img style="height: 150px;" src="/pictures/beerchrismas.webp" alt="Різдвяне пиво">
                     <p>Різдвяне пиво</p>
                     <p>Стара ціна: <del>60 грн</del></p>
                     <p>Нова ціна: <span style="color: red;">55 грн</span></p>
-                    <button class="add-to-cart-btn">Додати в кошик</button>
+                    <div class="quantity-control">
+                        <button class="decrease-quantity">-</button>
+                        <span class="quantity-text">1</span>
+                        <button class="increase-quantity">+</button>
+                    </div>
+                    <button class="add-to-cart-btn" onclick="addToCart(this)">Додати в кошик</button>
                 </div>
-                <div class="product-card">
+                <div class="product-card" data-product-name="Ківі" data-product-image="/pictures/kivi.jpg" data-product-price="60">
                     <img style="height: 150px;" src="/pictures/kivi.jpg" alt="Ківі">
                     <p>Ківі</p>
                     <p>Стара ціна: <del>65 грн/кг</del></p>
                     <p>Нова ціна: <span style="color: red;">60 грн/кг</span></p>
-                    <button class="add-to-cart-btn">Додати в кошик</button>
+                    <div class="quantity-control">
+                        <button class="decrease-quantity">-</button>
+                        <span class="quantity-text">1</span>
+                        <button class="increase-quantity">+</button>
+                    </div>
+                    <button class="add-to-cart-btn" onclick="addToCart(this)">Додати в кошик</button>
                 </div>
             </div>
         </div>
     </div>
     
 
-    <footer class="footer" style="margin-top: 110px;">
+    <footer class="footer" style="margin-top: 200px;">
         <div class="footer-column">
             <h3>Телефон</h3>
             <p>+380 123 456 789</p>
@@ -181,28 +264,58 @@
         </div>        
     </footer>
 
-    <script src="script.js"></script>
     <script>
-        function addToCart(button) {
-            const product = {
-                name: button.parentElement.dataset.productName,
-                image: button.parentElement.dataset.productImage
+            document.addEventListener('DOMContentLoaded', function() {
+            const updateCartCount = () => {
+                const cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
+                const cartCountSpan = document.getElementById('cart-count');
+                cartCountSpan.textContent = cartItems.length;
+                cartCountSpan.style.display = cartItems.length > 0 ? 'block' : 'none';
             };
-        
+
+            const changeQuantity = (element, change) => {
+                const quantityText = element.parentElement.querySelector('.quantity-text');
+                let quantity = parseInt(quantityText.textContent, 10);
+                quantity += change;
+                if (quantity < 1) quantity = 1;
+                quantityText.textContent = quantity;
+            };
+
+            document.querySelectorAll('.increase-quantity').forEach(button => {
+                button.addEventListener('click', () => changeQuantity(button, 1));
+            });
+
+            document.querySelectorAll('.decrease-quantity').forEach(button => {
+                button.addEventListener('click', () => changeQuantity(button, -1));
+            });
+
+            const addToCart = (button) => {
+            const productCard = button.parentElement;
+            const productName = productCard.dataset.productName;
+            const productImage = productCard.dataset.productImage;
+            const productPrice = parseFloat(productCard.dataset.productPrice);
+            const quantity = parseInt(productCard.querySelector('.quantity-text').textContent, 10);
+
             let cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
-            cartItems.push(product);
+            const index = cartItems.findIndex(cartItem => cartItem.name === productName);
+
+            if (index !== -1) {
+                cartItems[index].quantity += quantity;
+            } else {
+                cartItems.push({ name: productName, image: productImage, price: productPrice, quantity: quantity }); 
+            }
+
             localStorage.setItem('cartItems', JSON.stringify(cartItems));
+            updateCartCount(); 
+        };
+
+
+
+            document.querySelectorAll('.add-to-cart-btn').forEach(button => {
+                button.addEventListener('click', () => addToCart(button));
+            });
+
             updateCartCount();
-        }
-
-        function updateCartCount() {
-            const cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
-            const cartCountSpan = document.getElementById('cart-count');
-            cartCountSpan.textContent = cartItems.length;
-            cartCountSpan.style.display = cartItems.length > 0 ? 'block' : 'none';
-        }
-
-        document.addEventListener('DOMContentLoaded', updateCartCount);
-    </script>
+        });     </script>
 </body>
 </html>
