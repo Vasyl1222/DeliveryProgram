@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grocery Express</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="/pictures/logo.png" type="image/png">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <header class="header">
+        <a href="products.html"><img class="logo" style="width: 100px;" src="/pictures/logo.png" alt=""></a>
+        <h1 style="margin-left: 150px;">Grocery Express</h1>
+        <div class="header-icons">
+            <a href="kabinet.html"><img style="width: 40px; height: 40px; margin-right: 15px;" src="https://img.icons8.com/?size=100&id=7820&format=png&color=FFFFFF" alt="Icon 1"></a>
+            <a href="koshuk.html" style="position: relative;">
+                <img style="width: 40px; height: 40px; margin-right: 15px;" src="https://img.icons8.com/?size=100&id=xjnMGXwRRjbC&format=png&color=FFFFFF" alt="Icon 3">
+                <span id="cart-count" style="position: absolute; top: 0; right: 0; background-color: red; color: white; border-radius: 50%; padding: 0 5px; font-size: 12px; display: none;"></span>
+            </a>
+            <a href="tracking.html"><img style="width: 40px; height: 40px; margin-right: 15px;" src="https://img.icons8.com/?size=100&id=487&format=png&color=FFFFFF" alt="Icon 3"></a>
+            <a href="index.html"><img style="width: 40px; height: 40px; margin-right: 15px;" src="https://img.icons8.com/?size=100&id=1090&format=png&color=FFFFFF" alt=""></a>
+        </div>
+    </header>
+
+<style>
+.inputText{
+    width: 150px;
+    height: 30px;
+    border-radius: 5px;
+    border-color: #FFF9F1;
+}
+</style>
+
+<div  style="margin-top: 200px; margin-left: 100px;">
+    <div>
+        <label for="order-number">Введіть номер замовлення:</label>
+        <input type="text" class="inputText"  id="order-number" name="order-number">
+        <button class="border-btn color-one" onclick="checkOrder()">Перевірити статус</button>
+    </div>
+    
+    <div id="order-details" style="display: none; margin-top: 20px;">
+        <div id="order-status" style="font-family: 'Poppins', sans-serif; font-size: 24px; color: #F5745F;">
+        </div>
+        <div style="margin-top: 20px; font-family: 'Poppins', sans-serif; font-size: 18px;">
+            <p id="customer-name"><strong>Кому:</strong> Ім'я отримувача</p>
+            <p id="delivery-address"><strong>Куди:</strong> Адреса доставки</p>
+            <p id="recipient-phone"><strong>Телефон отримувача:</strong> Номер телефону</p>
+        </div>
+    </div>
+</div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+    let fullname = localStorage.getItem('fullname'); 
+    let greetingElement = document.getElementById('greeting');
+    if (fullname) {
+        greetingElement.textContent = "Вітаємо, " + fullname + "!";
+    } else {
+        greetingElement.textContent = "Вітаємо!";
+    }
+
+    let savedAddress = localStorage.getItem('deliveryAddress');
+    let addressInput = document.getElementById('address');
+
+    if (savedAddress) {
+        addressInput.value = savedAddress;
+    }
+
+    let savedPhone = localStorage.getItem('phoneNumber');
+    let phoneInput = document.getElementById('phone');
+
+    if (savedPhone) {
+        phoneInput.value = savedPhone;
+    }
+});
+
+function saveData() {
+    let addressInput = document.getElementById('address').value;
+    localStorage.setItem('deliveryAddress', addressInput);
+
+    let phoneInput = document.getElementById('phone').value;
+    localStorage.setItem('phoneNumber', phoneInput);
+
+    alert('Дані збережено!');
+}
+
+const orderNumberInput = document.getElementById('order-number');
+const orderDetailsDiv = document.getElementById('order-details');
+const orderStatusDiv = document.getElementById('order-status');
+const customerNameSpan = document.getElementById('customer-name');
+const deliveryAddressSpan = document.getElementById('delivery-address');
+const recipientPhoneSpan = document.getElementById('recipient-phone');
+let currentStageIndex = 0;
+const stages = ["Прийнято", "Комплектується", "Передано в службу доставки", "Отримано"];
+
+function checkOrder() {
+    const orderNumber = orderNumberInput.value;
+    orderDetailsDiv.style.display = 'block';
+    orderStatusDiv.textContent = `Статус замовлення: ${stages[currentStageIndex]}`;
+    orderStatusDiv.style.color = '#F5745F';
+
+    const profileData = {
+        customerName: localStorage.getItem('fullname') || 'Ім\'я отримувача',
+        deliveryAddress: localStorage.getItem('deliveryAddress') || 'Адреса доставки',
+        recipientPhone: localStorage.getItem('phoneNumber') || 'Номер телефону'
+    };
+
+    customerNameSpan.innerHTML = `<strong>Кому:</strong> ${profileData.customerName}`;
+    deliveryAddressSpan.innerHTML = `<strong>Куди:</strong> ${profileData.deliveryAddress}`;
+    recipientPhoneSpan.innerHTML = `<strong>Телефон отримувача:</strong> ${profileData.recipientPhone}`;
+
+    setInterval(() => {
+        currentStageIndex++;
+        if (currentStageIndex >= stages.length) {
+            currentStageIndex = stages.length - 1;
+            clearInterval();
+        }
+        orderStatusDiv.textContent = `Статус замовлення: ${stages[currentStageIndex]}`;
+        if (currentStageIndex === stages.length - 1) {
+            orderStatusDiv.style.color = 'green';
+        }
+    }, 10000);
+}
+
+</script>
+
+</body>
+</html>

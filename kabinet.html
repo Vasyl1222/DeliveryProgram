@@ -15,21 +15,30 @@
         <h1 style="margin-left: 150px;">Grocery Express</h1>
         <div class="header-icons">
             <a href="kabinet.html"><img style="width: 40px; height: 40px; margin-right: 15px;" src="https://img.icons8.com/?size=100&id=7820&format=png&color=FFFFFF" alt="Icon 1"></a>
-            <a href="#"><img style="background-color: none; width: 40px; height: 40px; margin-right: 15px;" src="https://img.icons8.com/?size=100&id=xjnMGXwRRjbC&format=png&color=FFFFFF" alt="Icon 2"></a>
-            <a href="#"><img style="width: 40px; height: 40px; margin-right: 15px;" src="https://img.icons8.com/?size=100&id=487&format=png&color=FFFFFF" alt="Icon 3"></a>
+            <a href="koshuk.html" style="position: relative;">
+                <img style="width: 40px; height: 40px; margin-right: 15px;" src="https://img.icons8.com/?size=100&id=xjnMGXwRRjbC&format=png&color=FFFFFF" alt="Icon 3">
+                <span id="cart-count" style="position: absolute; top: 0; right: 0; background-color: red; color: white; border-radius: 50%; padding: 0 5px; font-size: 12px; display: none;"></span>
+            </a>
+            <a href="tracking.html"><img style="width: 40px; height: 40px; margin-right: 15px;" src="https://img.icons8.com/?size=100&id=487&format=png&color=FFFFFF" alt="Icon 3"></a>
             <a href="index.html"><img style="width: 40px; height: 40px; margin-right: 15px;" src="https://img.icons8.com/?size=100&id=1090&format=png&color=FFFFFF" alt=""></a>
         </div>
     </header>
 
     <h2 style="margin-top: 120px; margin-left: 50px;" id="greeting"></h2>
 
-    <div style="margin-top: 20px; margin-left: 50px;">
-        <label for="address">Адреса доставки: </label>
-        <input type="text" id="address" placeholder="Введіть адресу">
-        <button id="addressButton" onclick="updateAddress()">Додати</button>
+    <div style="margin-top: 20px; margin-left: 50px; max-width: 600px;">
+        <div style="margin-bottom: 10px; display: flex; flex-direction: column;">
+            <label for="address">Адреса доставки:</label>
+            <input type="text" id="address" name="address" required>
+        </div>
+        <div style="margin-bottom: 10px; display: flex; flex-direction: column;">
+            <label for="phone">Номер телефону:</label>
+            <input type="text" id="phone" name="phone" required>
+        </div>
+        <button id="saveButton" class="border-btn color-one" onclick="saveData()">Зберегти</button>
     </div>
 
-    <footer class="footer" style="margin-top: 20px;">
+    <footer class="footer" style="margin-top: 315px;">
         <div class="footer-column">
             <h3>Телефон</h3>
             <p>+380 123 456 789</p>
@@ -42,6 +51,7 @@
         <div class="footer-column">
             <p><a href="aboutUs.html">Про нас</a></p>
             <p><a href="dostavka.html">Доставка</a></p>
+            <p><a href="reviews.html">Відгуки</a></p>
         </div>
         <div class="footer-column">
             <p><a href="pay.html">Оплата</a></p>
@@ -51,31 +61,38 @@
 
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            var fullname = localStorage.getItem('fullname'); 
-            var greetingElement = document.getElementById('greeting');
+            let fullname = localStorage.getItem('fullname'); 
+            let greetingElement = document.getElementById('greeting');
             if (fullname) {
                 greetingElement.textContent = "Вітаємо, " + fullname + "!";
             } else {
                 greetingElement.textContent = "Вітаємо!";
             }
-
-            var savedAddress = localStorage.getItem('deliveryAddress');
-            var addressInput = document.getElementById('address');
-            var addressButton = document.getElementById('addressButton');
-
+        
+            let savedAddress = localStorage.getItem('deliveryAddress');
+            let addressInput = document.getElementById('address');
+        
             if (savedAddress) {
                 addressInput.value = savedAddress;
-                addressButton.textContent = "Змінити";
+            }
+
+            let savedPhone = localStorage.getItem('phoneNumber');
+            let phoneInput = document.getElementById('phone');
+
+            if (savedPhone) {
+                phoneInput.value = savedPhone;
             }
         });
 
-        function updateAddress() {
-            var addressInput = document.getElementById('address').value;
+        function saveData() {
+            let addressInput = document.getElementById('address').value;
             localStorage.setItem('deliveryAddress', addressInput);
-            var addressButton = document.getElementById('addressButton');
-            addressButton.textContent = "Змінити";
+
+            let phoneInput = document.getElementById('phone').value;
+            localStorage.setItem('phoneNumber', phoneInput);
+
+            alert('Дані збережено!');
         }
     </script>
-
 </body>
 </html>

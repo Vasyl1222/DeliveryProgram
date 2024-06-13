@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grocery Express</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="/pictures/logo.png" type="image/png">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <header class="header">
+        <a href="products.html"><img class="logo" style="width: 100px;" src="/pictures/logo.png" alt=""></a>
+        <h1 style="margin-left: 150px;">Grocery Express</h1>
+        <div class="header-icons">
+            <a href="kabinet.html"><img style="width: 40px; height: 40px; margin-right: 15px;" src="https://img.icons8.com/?size=100&id=7820&format=png&color=FFFFFF" alt="Icon 1"></a>
+            <a href="koshuk.html" style="position: relative;">
+                <img style="width: 40px; height: 40px; margin-right: 15px;" src="https://img.icons8.com/?size=100&id=xjnMGXwRRjbC&format=png&color=FFFFFF" alt="Icon 3">
+                <span id="cart-count" style="position: absolute; top: 0; right: 0; background-color: red; color: white; border-radius: 50%; padding: 0 5px; font-size: 12px; display: none;"></span>
+            </a>
+            <a href="tracking.html"><img style="width: 40px; height: 40px; margin-right: 15px;" src="https://img.icons8.com/?size=100&id=487&format=png&color=FFFFFF" alt="Icon 3"></a>
+            <a href="index.html"><img style="width: 40px; height: 40px; margin-right: 15px;" src="https://img.icons8.com/?size=100&id=1090&format=png&color=FFFFFF" alt=""></a>
+        </div>
+    </header>
+
+<h2 style="margin-top: 50px; margin-left: 100px; font-size: 36px; color: #333;">Оформлення замовлення</h2>
+
+<form id="order-form" style="margin-left: 100px; max-width: 600px; display: flex; flex-direction: column;">
+    <div style="margin-bottom: 10px; display: flex; flex-direction: column;">
+        <label for="order-number">Номер замовлення:</label>
+        <input type="text" id="order-number" name="order-number" readonly>
+    </div>
+    <div style="margin-bottom: 10px; display: flex; flex-direction: column;">
+        <label for="first-name">Ім'я:</label>
+        <input type="text" id="first-name" name="first-name" required>
+    </div>
+    <div style="margin-bottom: 10px; display: flex; flex-direction: column;">
+        <label for="last-name">Прізвище:</label>
+        <input type="text" id="last-name" name="last-name" required>
+    </div>
+    <div style="margin-bottom: 10px; display: flex; flex-direction: column;">
+        <label for="phone">Номер телефону:</label>
+        <input type="text" id="phone" name="phone" required>
+    </div>
+    <div style="margin-bottom: 10px; display: flex; flex-direction: column;">
+        <label for="address">Адреса доставки:</label>
+        <input type="text" id="address" name="address" required>
+    </div>
+    <button type="submit" class="border-btn color-one" style="align-self: flex-start;">Підтвердити замовлення</button>
+</form>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+    const orderNumberInput = document.getElementById('order-number');
+    const orderForm = document.getElementById('order-form');
+
+    function generateOrderNumber() {
+        return 'ORD-' + Math.floor(Math.random() * 1000000);
+    }
+
+    orderNumberInput.value = generateOrderNumber();
+
+    const savedAddress = localStorage.getItem('deliveryAddress') || '';
+    const savedPhone = localStorage.getItem('phoneNumber') || '';
+
+    document.getElementById('address').value = savedAddress;
+    document.getElementById('phone').value = savedPhone;
+
+    orderForm.addEventListener('submit', (event) => {
+        event.preventDefault();
+
+        const orderData = {
+            orderNumber: orderNumberInput.value,
+            firstName: document.getElementById('first-name').value,
+            lastName: document.getElementById('last-name').value,
+            phone: document.getElementById('phone').value,
+            address: document.getElementById('address').value,
+            cartItems: JSON.parse(localStorage.getItem('cartItems')) || []
+        };
+
+        localStorage.setItem('orderData', JSON.stringify(orderData));
+        localStorage.removeItem('cartItems');
+
+        window.location.href = 'goodorder.html'; 
+    });
+});
+</script>
+
+</body>
+</html>

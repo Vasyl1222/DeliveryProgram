@@ -11,13 +11,16 @@
 <body>
     
     <header class="header">
-        <a href="products.html"><img class="logo" style="width: 100px; " src="pictures/logo.png" alt=""></a>
+        <a href="products.html"><img class="logo" style="width: 100px;" src="/pictures/logo.png" alt=""></a>
         <h1 style="margin-left: 150px;">Grocery Express</h1>
         <div class="header-icons">
             <a href="kabinet.html"><img style="width: 40px; height: 40px; margin-right: 15px;" src="https://img.icons8.com/?size=100&id=7820&format=png&color=FFFFFF" alt="Icon 1"></a>
-            <a href="koshuk.html"><img style=" background-color: none; width: 40px; height: 40px; margin-right: 15px;" src="https://img.icons8.com/?size=100&id=xjnMGXwRRjbC&format=png&color=FFFFFF" alt="Icon 2">            </a>
-            <a href="dostavka.html"><img style="width: 40px; height: 40px; margin-right: 15px;" src="https://img.icons8.com/?size=100&id=487&format=png&color=FFFFFF" alt="Icon 3"></a>
-            <a href="reviews.html"><img style="width: 40px; height: 40px; margin-right: 15px;" src="pictures/reviews.png" alt="Icon 4"></a>
+            <a href="koshuk.html" style="position: relative;">
+                <img style="width: 40px; height: 40px; margin-right: 15px;" src="https://img.icons8.com/?size=100&id=xjnMGXwRRjbC&format=png&color=FFFFFF" alt="Icon 3">
+                <span id="cart-count" style="position: absolute; top: 0; right: 0; background-color: red; color: white; border-radius: 50%; padding: 0 5px; font-size: 12px; display: none;"></span>
+            </a>
+            <a href="tracking.html"><img style="width: 40px; height: 40px; margin-right: 15px;" src="https://img.icons8.com/?size=100&id=487&format=png&color=FFFFFF" alt="Icon 3"></a>
+            <a href="index.html"><img style="width: 40px; height: 40px; margin-right: 15px;" src="https://img.icons8.com/?size=100&id=1090&format=png&color=FFFFFF" alt=""></a>
         </div>
     </header>
 
@@ -25,24 +28,24 @@
     <div  style="color: #333; margin-top: 120px; margin-left: 50px;">
         <h2>Відгуки</h2>
         <div style="background-color: white; margin: 10px; border-radius: 10px; width: 500px; padding: 5px; font-size: 15px;">
-            <p>Неймовірна компанія! Приємне та швидке обслуговування!</p>
             <img src="pictures/five_star1.png"/>
+            <p>Неймовірна компанія! Приємне та швидке обслуговування!</p>
         </div>
         <div style="background-color: white; margin: 10px; border-radius: 10px; width: 700px; padding: 5px; font-size: 15px;">
-            <p>Замовленням задоволена на всі 100%. Вражаюча швидкість доставки.Смачні,свіжі та якісні продукти. Приємний кур'єр. Буду замовляти ще. </p>
             <img src="pictures/five_star1.png"/>
+            <p>Замовленням задоволена на всі 100%. Вражаюча швидкість доставки.Смачні,свіжі та якісні продукти. Приємний кур'єр. Буду замовляти ще. </p>
         </div>
         <div style="background-color: white; margin: 10px; border-radius: 10px; width: 500px; padding: 5px; font-size: 15px;">
-            <p>Усе сподобалось </p>
             <img src="pictures/four_star.png"/>
+            <p>Усе сподобалось </p>
         </div>
         <div style="background-color: white; margin: 10px; border-radius: 10px; width: 600px; padding: 5px; font-size: 15px;">
-            <p> Зручно,швидко та економно! </p>
             <img src="pictures/four_star.png"/>
+            <p> Зручно,швидко та економно! </p>
         </div>
         <div style="background-color: white; margin: 10px; border-radius: 10px; width: 700px; padding: 5px; font-size: 15px;">
-            <p>Замовляю уже не перший раз.Все подобається! Швидко та комфортно. Користуюсь послугами саме цієї компанії,бо продукти смачні та якісні,а ціни - помірні.</p>
             <img src="pictures/five_star1.png"/>
+            <p>Замовляю уже не перший раз.Все подобається! Швидко та комфортно. Користуюсь послугами саме цієї компанії,бо продукти смачні та якісні,а ціни - помірні.</p>
         </div>
          
     </div>
@@ -61,6 +64,7 @@
         <div class="footer-column">
             <p><a href="aboutUs.html">Про нас</a></p>
             <p><a href="dostavka.html">Доставка</a></p>
+            <p><a href="reviews.html">Відгуки</a></p>
         </div>
         <div class="footer-column">
             <p><a href="pay.html">Оплата</a></p>
