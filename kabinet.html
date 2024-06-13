@@ -24,21 +24,30 @@
         </div>
     </header>
 
+<style>
+.inputText{
+    width: 350px;
+    height: 40px;
+    border-radius: 5px;
+    border-color: #FFF9F1;
+}
+</style>
+
     <h2 style="margin-top: 120px; margin-left: 50px;" id="greeting"></h2>
 
     <div style="margin-top: 20px; margin-left: 50px; max-width: 600px;">
         <div style="margin-bottom: 10px; display: flex; flex-direction: column;">
             <label for="address">Адреса доставки:</label>
-            <input type="text" id="address" name="address" required>
+            <input class="inputText" type="text" id="address" name="address" required>
         </div>
         <div style="margin-bottom: 10px; display: flex; flex-direction: column;">
             <label for="phone">Номер телефону:</label>
-            <input type="text" id="phone" name="phone" required>
+            <input class="inputText" type="text" id="phone" name="phone" required>
         </div>
         <button id="saveButton" class="border-btn color-one" onclick="saveData()">Зберегти</button>
     </div>
 
-    <footer class="footer" style="margin-top: 315px;">
+    <footer class="footer" style="margin-top: 195px;">
         <div class="footer-column">
             <h3>Телефон</h3>
             <p>+380 123 456 789</p>
